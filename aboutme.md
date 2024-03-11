@@ -4,7 +4,7 @@ title: About me
 subtitle: Quickly come and make a friend with me
 ---
 
-🎉 Welcome to my website. I am **Xuhang Ye**, a passionate student of Computer Science, keen on exploring the latest developments in technology. 
+🎉 Welcome to my website. I am **Xuhang Ye**, a passionate student of Computer Science, keen on exploring the latest developments in technology.
 
 🌱 This website serves as my personal space to document my **academic journey**, **participation in projects and competitions**, and **my reflections on personal growth and life**.
 
