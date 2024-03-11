@@ -4,10 +4,74 @@ title: 404 - Page not found
 permalink: /404.html
 ---
 
-<div class="text-center">
+<!-- <div class="text-center">
   <h1>Whoops, this page doesn't exist.</h1>
   <h1>Move along. (404 error)</h1>
   <br/>
 
   <img src="{{ 'assets/img/404-southpark.jpg' | relative_url }}" alt="Not found" />
+</div> -->
+
+<style type="text/css" media="screen">
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fefefe;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  }
+
+  .container {
+    max-width: 600px;
+    text-align: center;
+    animation: float 5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  h1 {
+    margin: 30px 0;
+    font-size: 8em;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: #ffffff;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  }
+
+  p {
+    font-size: 1.5em;
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #DC3545;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  a:hover {
+    background-color: #555;
+  }
+</style>
+
+<div class="container">
+  <h1>Oops!</h1>
+  <p><strong>Page not found :(</strong></p>
+  <p>We can't find the page you're looking for.</p>
+  <p>You may have mistyped the address or the page may have moved.</p>
+  <a href="/">Take me home</a>
 </div>
