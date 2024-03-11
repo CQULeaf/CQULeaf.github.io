@@ -20,7 +20,11 @@ author: Xuhang Ye
 ###############################################
 
 navbar-links:
+  Blog: "/"
+  Projects: "Projects"
   About Me: "aboutme"
+  Resume: "resume"
+
   # Resources:
   #   - Beautiful Jekyll: "https://beautifuljekyll.com"
   #   - Learn markdown: "https://www.markdowntutorial.com/"
