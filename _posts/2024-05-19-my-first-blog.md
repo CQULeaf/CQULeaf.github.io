@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Start from here & To be a BDD
+title: Start from Here & To Be a BDD
 subtitle: Write, write and write
 tags: [Ideas and Insights]
 ---
