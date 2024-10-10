@@ -5,6 +5,14 @@ subtitle: Make the software development process more efficient
 tags: [Software Development]
 ---
 
+- [What Is the Code Review Process?](#what-is-the-code-review-process)
+- [Why Is Code Review Critical?](#why-is-code-review-critical)
+- [How to Perform a Code Review?](#how-to-perform-a-code-review)
+  - [Over-the-Shoulder Code Reviews](#over-the-shoulder-code-reviews)
+  - [Tool-Assisted Code Reviews](#tool-assisted-code-reviews)
+- [Why Using Code Review Tools?](#why-using-code-review-tools)
+- [Use GitHub as a Powerful Code Review Tool](#use-github-as-a-powerful-code-review-tool)
+
 Code review is a part of the software development process which involves ***testing the source code*** to identify bugs at an early stage. A code review process is typically conducted before merging with the codebase.
 
 An effective code review ***prevents bugs and errors*** from getting into our project by ***improving code quality*** at an early stage of the software development process.
