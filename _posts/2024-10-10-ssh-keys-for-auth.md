@@ -5,14 +5,14 @@ subtitle: A Step-by-Step Guide to Secure and Simplified GitHub Authentication
 tags: [Trivial Tech Knowledge]
 ---
 
+Working with GitHub requires a secure way to connect and manage your repositories, but GitHub will no longer support password authentication after August 13, 2021. Instead, **using SSH keys for authentication** seems to be a better practice. In this blog post, I’ll walk you through the process of setting up SSH keys, adding them to GitHub and so on.
+
 - [What Are SSH Keys?](#what-are-ssh-keys)
 - [Step-by-Step Guide to Setting Up SSH Keys on Windows](#step-by-step-guide-to-setting-up-ssh-keys-on-windows)
   - [Step 1: Generate the SSH Key Pair](#step-1-generate-the-ssh-key-pair)
   - [Step 2: Start the SSH Agent and Add Your SSH Key to the Agent](#step-2-start-the-ssh-agent-and-add-your-ssh-key-to-the-agent)
   - [Step 3: Add Your SSH Key to GitHub](#step-3-add-your-ssh-key-to-github)
   - [Step 4: Test Your SSH Connection](#step-4-test-your-ssh-connection)
-
-Working with GitHub requires a secure way to connect and manage your repositories, but GitHub will no longer support password authentication after August 13, 2021. Instead, **using SSH keys for authentication** seems to be a better practice. In this blog post, I’ll walk you through the process of setting up SSH keys, adding them to GitHub and so on.
 
 ## What Are SSH Keys?
 
