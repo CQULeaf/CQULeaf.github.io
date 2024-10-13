@@ -3,6 +3,7 @@ layout: post
 title: Start from Here & To Be a BDD
 subtitle: Write, write and write
 tags: [Ideas and Insights]
+readtime: true
 ---
 
 It is the early morning of May 19, 2024, and the first personal blog will be written at this time, I think I will remember this moment forever.

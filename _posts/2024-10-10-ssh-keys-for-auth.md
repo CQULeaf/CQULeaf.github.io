@@ -3,6 +3,8 @@ layout: post
 title: Setting Up SSH Keys for GitHub Authentication
 subtitle: A Step-by-Step Guide to Secure and Simplified GitHub Authentication
 tags: [Trivial Tech Knowledge]
+readtime: true
+last-updated: 2024-10-13
 ---
 
 Working with GitHub requires a secure way to connect and manage your repositories, but GitHub will no longer support password authentication after August 13, 2021. Instead, **using SSH keys for authentication** seems to be a better practice. In this blog post, I’ll walk you through the process of setting up SSH keys, adding them to GitHub and so on.

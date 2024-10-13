@@ -3,6 +3,7 @@ layout: post
 title: Learn to Perform a good Code Review
 subtitle: Make the software development process more efficient
 tags: [Software Development]
+readtime: true
 ---
 
 Code review is a part of the software development process which involves ***testing the source code*** to identify bugs at an early stage. A code review process is typically conducted before merging with the codebase.

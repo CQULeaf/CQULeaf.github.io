@@ -54,7 +54,7 @@ round-avatar: true
 # You can change the order that they show up on the page by changing the order here.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "cqu-xuhang@qq.com"
+  email: "cquleaf@yexuhang.com"
   # rss: true  # remove this line if you don't want to show an RSS link at the bottom
   github: CQULeaf
 #  medium: yourname
@@ -152,7 +152,7 @@ footer-hover-col: "#0085A1"
 #page-img: "/assets/img/bgimage.png"
 
 # Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
-#mobile-theme-col: "#0085A1"
+mobile-theme-col: "#0085A1"
 
 # For any extra visual customization, you can include additional CSS files in every page on your site. List any custom CSS files here
 #site-css:
