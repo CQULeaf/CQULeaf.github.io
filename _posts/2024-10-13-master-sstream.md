@@ -8,6 +8,13 @@ readtime: true
 
 Recently I have met a small tricky problem about parsing and formatting the string input *"yyyy/mm/dd"* in C++ programming question, and the whole solution procedure is [here](https://github.com/CQULeaf/MultiPlatform_Coding_Exercises/blob/main/Pat/%E4%B8%93%E4%B8%9A%E5%9F%BA%E6%9C%AC%E8%83%BD%E5%8A%9B%E6%B5%8B%E8%AF%95/7-5%20%E8%AE%A1%E7%AE%97%E5%A4%A9%E6%95%B0.cpp). To nicely solve it, I used `std::stringstream`, which belongs to the `<sstream>`  library. I used this tool to manipulate string a long time ago, but now I want to write a mini-blog to summarize it.
 
+- [What is `std::stringstream`?](#what-is-stdstringstream)
+- [Basic Syntax](#basic-syntax)
+- [Example Usage: Parsing a Date](#example-usage-parsing-a-date)
+  - [Code Explanation](#code-explanation)
+  - [Using Benefits](#using-benefits)
+- [Inclusion](#inclusion)
+
 ## What is `std::stringstream`?
 
 `std::stringstream` is a part of the Standard Library's I/O facilities in C++ that lets you operate on strings in a way similar to how `cin` or `cout` work with input and output. It can be used to perform operations like **extracting data from strings**, **formatting strings**, and **converting between different types**. Essentially, `std::stringstream` treats strings like an input/output stream, making it very versatile for handling formatted data.
@@ -74,6 +81,12 @@ int main() {
 2. Use `getline(cin, input)` reads the entire date string from the user.
 3. `stringstream ss(input)` initializes the stream with the input string.
 4. `ss >> year >> delimiter >> month >> delimiter >> day` extracts the values into `year`, `month`, and `day`. The delimiter variable holds the '/' characters in between, effectively skipping them.
+
+### Using Benefits
+
+- **Handling Delimiters:** When extracting values, `std::stringstream` automatically skips spaces or specified delimiters.
+- **Conversion Between Data Types:** It easily handles type conversion—for instance, converting a `string` representation of an integer to an `int` type.
+- **Error Handling:** If the format of the input string is not correct, `std::stringstream` gracefully handles errors by setting the error state flags, making it more robust than manual parsing.
 
 ## Inclusion
 
