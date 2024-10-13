@@ -37,7 +37,7 @@ Here are the basic steps:
 
 Here I will take the C++ programming question mentioned above as an example.
 
-```C++
+```cpp
 #include <iostream>
 #include <sstream>
 #include <vector>
