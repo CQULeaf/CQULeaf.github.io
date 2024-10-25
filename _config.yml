@@ -57,11 +57,13 @@ social-network-links:
   email: "cquleaf@yexuhang.com"
   # rss: true  # remove this line if you don't want to show an RSS link at the bottom
   github: CQULeaf
+  stackoverflow: "20622708/xuhang-ye"
+  kaggle: xuhangye
 #  medium: yourname
 #  reddit: yourname
 #  linkedin: daattali
 #  xing: yourname
-stackoverflow: "20622708/xuhang-ye"
+# stackoverflow: "20622708/xuhang-ye"
 #  snapchat: deanat78
 #  instagram: deanat78
 #  spotify: yourname
@@ -76,7 +78,7 @@ stackoverflow: "20622708/xuhang-ye"
 #  ORCID: your ORCID ID
 #  google-scholar: your google scholar
 #  discord: "invite_code" or "users/userid" or "invite/invite_code" 
-kaggle: xuhangye
+# kaggle: xuhangye
 #  hackerrank: yourname
 #  gitlab: yourname
 #  itchio: yourname
