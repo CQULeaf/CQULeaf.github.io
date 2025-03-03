@@ -41,13 +41,13 @@
 }
 
 #contact-form p {
-  margin-bottom: 1.625rem;
+  margin-bottom: 0.625rem;
 }
 
 #contact-form .form-control {
   margin-bottom: 20px;
   padding: 0.5rem; /* Add some padding inside the inputs for better appearance */
-  border: 1px solid #ccc; /* Add a border to the input fields */
+  border: 10px solid #ccc; /* Add a border to the input fields */
   border-radius: 4px; /* Round the corners of the inputs */
 }
 
