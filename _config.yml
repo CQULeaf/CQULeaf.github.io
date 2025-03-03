@@ -21,7 +21,7 @@ author: Xuhang Ye
 
 navbar-links:
   Blog: "/"
-  Projects: "Projects"
+  Projects: "projects"
   About Me: "aboutme"
   Resume: "resume"
 
@@ -60,12 +60,10 @@ social-network-links:
   google-scholar: xdeVKGcAAAAJ
   stackoverflow: "20622708/xuhang-ye"
   kaggle: xuhangye
-  huggingface: CQULeaf
 #  medium: yourname
 #  reddit: yourname
 #  linkedin: daattali
 #  xing: yourname
-# stackoverflow: "20622708/xuhang-ye"
 #  snapchat: deanat78
 #  instagram: deanat78
 #  spotify: yourname
@@ -78,9 +76,7 @@ social-network-links:
 #  mastodon: instance.url/@username
 #  bluesky: yourname
 #  ORCID: your ORCID ID
-#  google-scholar: your google scholar
 #  discord: "invite_code" or "users/userid" or "invite/invite_code" 
-# kaggle: xuhangye
 #  hackerrank: yourname
 #  gitlab: yourname
 #  itchio: yourname
