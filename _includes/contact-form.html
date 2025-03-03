@@ -1,0 +1,67 @@
+<form action="https://formspree.io/f/xzbnalkj" method="POST" class="neon-form" id="contact-form">
+    <div class="form-header">
+      <div class="pulse-dot"></div>
+      <h3>📩 Quick Message Channel</h3>
+      <p>I WILL REPLY ASAP</p>
+    </div>
+  
+    <div class="form-grid">
+      <div class="input-group">
+        <div class="icon-container">
+          <i class="fas fa-user-astronaut"></i>
+        </div>
+        <input type="text" 
+               name="name" 
+               class="form-input floating-input" 
+               placeholder=" "
+               required>
+        <label class="floating-label">Your Name</label>
+      </div>
+  
+      <!-- 邮箱输入带验证反馈 -->
+      <div class="input-group">
+        <div class="icon-container">
+          <i class="fas fa-space-shuttle"></i>
+        </div>
+        <input type="email" 
+               name="_replyto" 
+               class="form-input floating-input" 
+               placeholder=" "
+               required
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <label class="floating-label">Your Email</label>
+        <div class="validation-feedback"></div>
+      </div>
+  
+      <!-- 消息文本框带动态计数器 -->
+      <div class="input-group message-group">
+        <div class="icon-container">
+          <i class="fas fa-comment-dots"></i>
+        </div>
+        <textarea name="content" 
+                  class="form-input floating-input" 
+                  placeholder=" "
+                  rows="4"
+                  maxlength="500"
+                  required></textarea>
+        <label class="floating-label">The Words You Wanna Say to Me...</label>
+        <div class="char-counter"><span>0</span>/500</div>
+      </div>
+    </div>
+  
+    <!-- 隐藏字段 -->
+    <input type="hidden" name="_subject" value="🚀 New emails from yexuhang.com">
+
+    <input type="hidden" name="_next" value="?message=The message has been successfully launched to the space station 🛰️">
+  
+    <!-- 动态提交按钮 -->
+    <button type="submit" class="submit-btn">
+      <span class="btn-text">Send Message</span>
+      <div class="loading-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <i class="fas fa-paper-plane"></i>
+    </button>
+  </form>
