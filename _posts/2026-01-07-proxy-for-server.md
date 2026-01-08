@@ -14,7 +14,6 @@ For a brand new domestic Linux cloud server, network issues are often a signific
   - [Edit Configuration File](#edit-configuration-file)
   - [Run the v2ray](#run-the-v2ray)
   - [Perform Some Tests](#perform-some-tests)
-  - [Set Environment Variables](#set-environment-variables)
 
 ## Two Core Steps
 
@@ -108,28 +107,120 @@ and then paste the below codes and modify the corresponding things (like the ser
 
 ### Run the v2ray
 
-We run v2ray directly as a background process. (Systemd is also ok and more convenient)
+For convenience, we created an automated script to manage the proxy.
+
+we run `vim ~/proxy_manager.sh` and then paste the below content.
 
 ```bash
-# Stop any v2ray processes that may be currently running.
-pkill v2ray
+#!/bin/bash
+PROXY_LOG="/tmp/v2ray.log"
+PROXY_PID_FILE="/tmp/v2ray.pid"
+V2RAY_BIN="/usr/local/bin/v2ray"
+V2RAY_CONFIG="/usr/local/etc/v2ray/config.json"
+PROXY_ADDR="socks5://127.0.0.1:1080"
+NO_PROXY="localhost,127.0.0.1,::1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
 
-# Use `nohup` to start v2ray in the background and output logs to a file.
-nohup /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json > /tmp/v2ray.log 2>&1 &
+start_proxy() {
+    if [ -f "$PROXY_PID_FILE" ] && kill -0 "$(cat "$PROXY_PID_FILE")" 2>/dev/null; then
+        echo "✓ Proxy is already running (PID: $(cat "$PROXY_PID_FILE"))"
+        return 0
+    fi
 
-# Check if it started successfully.
-sleep 2
-ps aux | grep v2ray | grep -v grep
+    if [ ! -f "$V2RAY_CONFIG" ]; then
+        echo "❌ Config file not found: $V2RAY_CONFIG"
+        exit 1
+    fi
+
+    nohup "$V2RAY_BIN" run -config "$V2RAY_CONFIG" > "$PROXY_LOG" 2>&1 &
+    echo $! > "$PROXY_PID_FILE"
+    sleep 2
+
+    if kill -0 "$(cat "$PROXY_PID_FILE")" 2>/dev/null; then
+        echo "✓ Proxy started (PID: $(cat "$PROXY_PID_FILE"))"
+        # Set proxy env vars (compatible with most tools)
+        export http_proxy="$PROXY_ADDR"
+        export https_proxy="$PROXY_ADDR"
+        export all_proxy="$PROXY_ADDR"
+        export HTTP_PROXY="$PROXY_ADDR"
+        export HTTPS_PROXY="$PROXY_ADDR"
+        export ALL_PROXY="$PROXY_ADDR"
+        export no_proxy="$NO_PROXY"
+        export NO_PROXY="$NO_PROXY"
+        echo "Proxy environment variables set."
+    else
+        echo "❌ Proxy failed to start. Check log: $PROXY_LOG"
+        rm -f "$PROXY_PID_FILE"
+    fi
+}
+
+stop_proxy() {
+    if [ -f "$PROXY_PID_FILE" ]; then
+        local pid
+        pid=$(cat "$PROXY_PID_FILE")
+        if kill -0 "$pid" 2>/dev/null; then
+            kill "$pid"
+            sleep 1
+            kill -0 "$pid" 2>/dev/null && kill -9 "$pid"
+        fi
+        rm -f "$PROXY_PID_FILE"
+        echo "✓ Proxy stopped"
+    else
+        echo "⚠ PID file not found. Attempting to kill by name..."
+        pkill -f "v2ray run" 2>/dev/null
+    fi
+
+    # Unset all proxy variables
+    unset http_proxy https_proxy all_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY no_proxy NO_PROXY
+    echo "Proxy environment variables cleared"
+}
+
+status_proxy() {
+    if [ -f "$PROXY_PID_FILE" ] && kill -0 "$(cat "$PROXY_PID_FILE")" 2>/dev/null; then
+        echo "Proxy status: running (PID: $(cat "$PROXY_PID_FILE"))"
+        echo "Recent log:"
+        tail -n 5 "$PROXY_LOG" 2>/dev/null || echo "(No log available)"
+    else
+        echo "Proxy status: not running"
+        if [ -f "$PROXY_LOG" ]; then
+            echo "Log file: $PROXY_LOG"
+        fi
+    fi
+}
+
+case "$1" in
+    start)
+        start_proxy
+        ;;
+    stop)
+        stop_proxy
+        ;;
+    status)
+        status_proxy
+        ;;
+    restart)
+        stop_proxy
+        sleep 1
+        start_proxy
+        ;;
+    *)
+        echo "Usage: source $0 {start|stop|status|restart}" >&2
+        echo "Note: Use 'source' or '.' to apply proxy settings in the current shell." >&2
+        exit 1
+        ;;
+esac
 ```
+
+Finally we run `chmod +x ~/proxy_manager.sh` to grant permissions.
+
+The above script provides us with 4 options (start, stop, status and restart). For example, we can run `source ~/proxy_manager.sh start` to start the proxy.
+
+For more convenience, we can create an alias. Add `alias proxy='source ~/proxy_manager.sh'` in `~/.bashrc` and then we can simply run `proxy start` to start it.
 
 ### Perform Some Tests
 
-We can also perform some tests to help us verify that V2Ray is running correctly.
+Finally, we can perform some tests to help us verify that V2Ray is running correctly.
 
 ```bash
-# Test the configuration file syntax and if success it displays "Configuration OK"
-sudo /usr/local/bin/v2ray test -config /usr/local/etc/v2ray/config.json
-
 # Check the process
 ps aux | grep v2ray
 
@@ -141,23 +232,7 @@ curl --socks5 127.0.0.1:1080 -m 10 http://httpbin.org/ip
 
 # View real-time logs
 tail -f /tmp/v2ray.log
+
+# Ping the github.com
+curl -I https://github.com
 ```
-
-### Set Environment Variables
-
-V2Ray is now running. Set the environment variables to point to the local proxy.
-
-```bash
-# Edit bash configuration
-vim ~/.bashrc
-
-# Add the following lines to the end of the file:
-export http_proxy="socks5://127.0.0.1:1080"
-export https_proxy="socks5://127.0.0.1:1080"
-export all_proxy="socks5://127.0.0.1:1080"
-export no_proxy="localhost,127.0.0.1,10.0.0.0/8,192.168.0.0/16"
-
-# Save and exit to apply the configuration changes.
-source ~/.bashrc
-```
-
