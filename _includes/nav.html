@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom {% if page.nav-short %}top-nav-short-permanent{% else %}top-nav-regular{% endif %}">
+<nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom {% if page.nav-short %}top-nav-short-permanent{% else %}top-nav-regular{% endif %}" data-theme="light">
 
   {%- if site.title-img -%}
     <a class="navbar-brand navbar-brand-logo" href="{{ '/' | absolute_url }}"><img alt="{{ site.title }} Logo" src="{{ site.title-img | relative_url}}"/></a>
@@ -38,6 +38,12 @@
           </a>
         </li>
       {%- endif -%}
+
+      <li class="nav-item">
+        <a class="nav-link theme-toggle" id="theme-toggle" href="#" onclick="var t=document.body.getAttribute('data-theme')==='dark'?'light':'dark';document.body.setAttribute('data-theme',t);document.querySelectorAll('.navbar-custom').forEach(function(n){n.setAttribute('data-theme',t)});var i=document.getElementById('theme-icon');if(i)i.className=t==='dark'?'fa fa-sun':'fa fa-moon';localStorage.setItem('theme',t);return false;">
+          <span id="theme-icon" class="fa fa-moon"></span>
+        </a>
+      </li>
     </ul>
   </div>
 

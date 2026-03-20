@@ -4,44 +4,106 @@ title: About Me
 subtitle: Quickly come and make a friend with me
 ---
 
-<div id="aboutme-section">
+<style>
+  {% include_relative assets/css/about-card.scss %}
+  {% include_relative assets/css/timeline.scss %}
+</style>
 
-  <p class="about-text">
-  <span class="fa fa-celebration about-icon"></span>
-  Welcome to my website. I am <strong>Xuhang Ye</strong>, a passionate student of Computer Science, keen on exploring the latest developments in technology.
-  </p>
-  
-  <p class="about-text">
-  <span class="fa fa-seedling about-icon"></span>
-  This website serves as my personal space to document my <strong>academic journey</strong>, <strong>participation in projects and competitions</strong>, and <strong>my reflections on personal growth and life</strong>.
-  </p>
-  
-  <p class="about-text">
-  <span class="fa fa-university about-icon"></span>
-  Studying Computer Science and Technology at <strong>Chongqing University</strong> has been an honor of my lifetime. Along the way, I've met lots of talented and passionate peers, received guidance from technically proficient and morally upright teachers, acquired fascinating knowledge, and achieved amazing and commendable results that are second to none.
-  </p>
-  
-  <p class="about-text">
-  <span class="fa fa-plane-departure about-icon"></span>
-  As my studies advance and my knowledge deepens, every course, competition, project, and research further enriches my understanding of Computer Science and Technology. Aren't these interesting and enchanting moments of growth worth recording? Through this blog, I hope to <strong>share these bits and pieces of the journey with students like me</strong>—not just the joy of success but also the reflections and solutions to the challenges encountered.
-  </p>
-  
-  <p class="about-text">
-  <span class="fa fa-target about-icon"></span>
-  My goal is to create a platform that is <strong>both educational and insightful</strong>. Whether you are new to computer science or someone with a foundational understanding, I sincerely invite you to join this journey. Let's learn and grow together, supporting each other along the way.
-  </p>
-  
-  <p class="about-text">
-  <span class="fa fa-heart about-icon"></span>
-  If you're interested in learning more, or just want to say "hi, let's make friends" please don't hesitate to contact me through <a href="mailto:cqu-xuhang@qq.com"><strong>my email</strong></a> or follow me on <a href="https://github.com/CQULeaf" target="_blank"><strong>my github account</strong></a>. Let's experience the charm of growing up as a computer science student together and explore this world full of endless possibilities.
-  </p>
-  
+<h1 class="about-section-title">Base Info</h1>
+
+<div class="about-card">
+  <div class="about-card-header">
+    <div class="about-card-icon">
+      <span class="fa fa-user-astronaut"></span>
+    </div>
+    <h2 class="about-card-title">Who I Am</h2>
+  </div>
+  <div class="about-card-content">
+    <p>I'm <strong>Xuhang Ye</strong>, a Computer Science student at <strong>Chongqing University</strong>. This website documents my academic journey, projects, and personal growth.</p>
+  </div>
+</div>
+
+<div class="about-card">
+  <div class="about-card-header">
+    <div class="about-card-icon">
+      <span class="fa fa-rocket"></span>
+    </div>
+    <h2 class="about-card-title">What I Do</h2>
+  </div>
+  <div class="about-card-content">
+    <p>I take courses, build projects, participate in competitions, and explore research. Each experience deepens my understanding of CS and makes the journey more exciting.</p>
+  </div>
+</div>
+
+<div class="about-card">
+  <div class="about-card-header">
+    <div class="about-card-icon">
+      <span class="fa fa-lightbulb"></span>
+    </div>
+    <h2 class="about-card-title">Why This Blog</h2>
+  </div>
+  <div class="about-card-content">
+    <p>I share both successes and failures—not just the highlights, but also the challenges and how I overcame them. Whether you're new to CS or already on your path, I hope these posts help you learn and grow alongside me.</p>
+  </div>
+</div>
+
+<div class="about-card highlight">
+  <div class="about-card-header">
+    <div class="about-card-icon">
+      <span class="fa fa-handshake"></span>
+    </div>
+    <h2 class="about-card-title">Let's Connect</h2>
+  </div>
+  <div class="about-card-content">
+    <p>Interested in collaborating or just want to say hi? Reach out via <a href="mailto:cquleaf@yexuhang.com">email</a> or check out <a href="https://github.com/CQULeaf" target="_blank">my GitHub</a>. I'm always happy to meet new people!</p>
+  </div>
+</div>
+
+<h1 class="about-section-title">My Journey</h1>
+<div class="timeline-section">
+  <div class="timeline-wrapper">
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2023 Sep</div>
+      <div class="timeline-content">
+        <div class="timeline-title">Started at Chongqing University</div>
+        <p class="timeline-desc">Embarked on my CS journey at one of China's top universities.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2024 Feb</div>
+      <div class="timeline-content">
+        <div class="timeline-title">First Major Project</div>
+        <p class="timeline-desc">Completed my first substantial course project, learned Git and collaboration.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2024 Jul</div>
+      <div class="timeline-content">
+        <div class="timeline-title">Summer Internship</div>
+        <p class="timeline-desc">First internship experience—shipped features to real users.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2025 Jan</div>
+      <div class="timeline-content">
+        <div class="timeline-title">Research Exploration</div>
+        <p class="timeline-desc">Started exploring academic research in distributed systems.</p>
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
 
 <div id="contactme-section">
-<h1 id="contact">Contact</h1>
-
-<p>You can <a href="mailto:cquleaf@yexuhang.com">email me</a> if you want to get in touch. As I said before, I love meeting new people and making friends with you, so don't hesitate to send me a message!</p>
+<h1 class="about-section-title">Contact Me</h1>
 
 {% include contact-form.html %}
 

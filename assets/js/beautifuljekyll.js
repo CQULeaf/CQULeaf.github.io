@@ -29,6 +29,8 @@ let BeautifulJekyllJS = {
     BeautifulJekyllJS.initImgs();
 
     BeautifulJekyllJS.initSearch();
+
+    BeautifulJekyllJS.initThemeToggle();
   },
 
   initNavbar : function() {
@@ -134,9 +136,41 @@ let BeautifulJekyllJS = {
         $("body").removeClass("overflow-hidden");
       }
     });
+  },
+
+  initThemeToggle : function() {
+    // Apply saved theme on load
+    const savedTheme = localStorage.getItem("theme") || "light";
+    BeautifulJekyllJS.setTheme(savedTheme);
+  },
+
+  setTheme : function(theme) {
+    document.body.setAttribute("data-theme", theme);
+    document.querySelectorAll(".navbar-custom").forEach(function(nav) {
+      nav.setAttribute("data-theme", theme);
+    });
+    const themeIcon = document.getElementById("theme-icon");
+    if (themeIcon) {
+      themeIcon.className = theme === "dark" ? "fa fa-sun" : "fa fa-moon";
+    }
   }
 };
 
 // 2fc73a3a967e97599c9763d05e564189
 
 document.addEventListener('DOMContentLoaded', BeautifulJekyllJS.init);
+
+// Apply saved theme on load (for pages that don't use the inline onclick)
+(function() {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    document.body.setAttribute("data-theme", savedTheme);
+    document.querySelectorAll(".navbar-custom").forEach(function(nav) {
+      nav.setAttribute("data-theme", savedTheme);
+    });
+    const themeIcon = document.getElementById("theme-icon");
+    if (themeIcon) {
+      themeIcon.className = savedTheme === "dark" ? "fa fa-sun" : "fa fa-moon";
+    }
+  }
+})();
