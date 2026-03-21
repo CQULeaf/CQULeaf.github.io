@@ -21,6 +21,8 @@ author: Xuhang Ye
 
 navbar-links:
   Blog: "/"
+  Archive: "archive"
+  Popular: "popular"
   Projects: "projects"
   About Me: "aboutme"
   Resume: "resume"
@@ -157,6 +159,8 @@ mobile-theme-col: "#0085A1"
 # For any extra visual customization, you can include additional CSS files in every page on your site. List any custom CSS files here
 site-css:
   - "/assets/css/dark-mode.css"
+  - "/assets/css/codeblocks.css"
+  - "/assets/css/toc.css"
 
 # If you have common JavaScript files that should be included in every page, list them here
 #site-js:
@@ -264,6 +268,10 @@ paginate: 5
 
 kramdown:
   input: GFM
+  syntax_highlighter: prism
+  syntax_highlighter_opts:
+    prismjs_options:
+      lang_label: true
 
 # Default YAML values (more information on Jekyll's site)
 defaults:

@@ -8,13 +8,6 @@ readtime: true
 
 For a brand new domestic Linux cloud server, network issues are often a significant obstacle that limits our learning and research. Similar to PCs, we can completely utilize proxies on cloud servers to resolve network issues and facilitate scientific research progress.
 
-- [Two Core Steps](#two-core-steps)
-- [Step-by-step Guidance](#step-by-step-guidance)
-  - [Download and Install v2ray-core](#download-and-install-v2ray-core)
-  - [Edit Configuration File](#edit-configuration-file)
-  - [Run the v2ray](#run-the-v2ray)
-  - [Perform Some Tests](#perform-some-tests)
-
 ## Two Core Steps
 
 1. **Install a "proxy client" software:** This type of software is lightweight and efficient, making it suitable for server environments. Its sole purpose is to connect to a remote proxy server.

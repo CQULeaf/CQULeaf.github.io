@@ -634,6 +634,25 @@ footer .footer-custom-content {
   font-size: 1rem;
 }
 
+/* --- View Count --- */
+
+.view-count-wrapper {
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid #ddd;
+  color: #888;
+  font-size: 0.875rem;
+}
+
+.view-count-wrapper i {
+  margin-right: 0.25rem;
+  color: #008AFF;
+}
+
+[data-theme="dark"] .view-count-wrapper {
+  border-left-color: #444;
+}
+
 /* --- Post and page headers --- */
 
 .intro-header {

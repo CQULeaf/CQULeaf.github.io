@@ -1,0 +1,207 @@
+---
+layout: page
+title: Archive
+subtitle: All posts organized by date
+---
+
+{% assign date_format = site.date_format | default: "%B %-d, %Y" %}
+
+<div class="archive-container">
+  {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+
+  {% for year in posts_by_year reversed %}
+    <div class="archive-year">
+      <h2 class="archive-year-title">
+        <span class="year-badge">{{ year.name }}</span>
+        <span class="year-count">({{ year.items | size }} posts)</span>
+      </h2>
+
+      <div class="archive-list">
+        {% assign sorted_posts = year.items | sort: "date" | reverse %}
+        {% for post in sorted_posts %}
+          <div class="archive-post-item">
+            <span class="archive-post-date">
+              <span class="date-month">{{ post.date | date: "%b" }}</span>
+              <span class="date-day">{{ post.date | date: "%-d" }}</span>
+            </span>
+            <span class="archive-post-title">
+              <a href="{{ post.url | relative_url }}">{{ post.title | strip_html }}</a>
+            </span>
+            {% if post.tags.size > 0 %}
+              <span class="archive-post-tags">
+                {% for tag in post.tags limit: 2 %}
+                  <span class="tag-mini">{{ tag }}</span>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .archive-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .archive-year {
+    margin-bottom: 3rem;
+  }
+
+  .archive-year-title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .year-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #008AFF 0%, #0085A1 100%);
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 1.1rem;
+  }
+
+  .year-count {
+    font-size: 0.875rem;
+    color: #888;
+    font-weight: 400;
+  }
+
+  .archive-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .archive-post-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+  }
+
+  .archive-post-item:hover {
+    background-color: rgba(0, 138, 255, 0.03);
+  }
+
+  .archive-post-item:last-child {
+    border-bottom: none;
+  }
+
+  .archive-post-date {
+    flex-shrink: 0;
+    width: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+  }
+
+  .date-month {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #008AFF;
+    text-transform: uppercase;
+  }
+
+  .date-day {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #404040;
+  }
+
+  .archive-post-title {
+    flex: 1;
+    margin-left: 1rem;
+  }
+
+  .archive-post-title a {
+    color: #404040;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+  }
+
+  .archive-post-title a:hover {
+    color: #008AFF;
+  }
+
+  .archive-post-tags {
+    display: flex;
+    gap: 0.25rem;
+    margin-left: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .tag-mini {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+    background-color: #f0f0f0;
+    color: #666;
+    border-radius: 0.2rem;
+  }
+
+  [data-theme="dark"] .archive-year-title {
+    border-bottom-color: #333;
+  }
+
+  [data-theme="dark"] .archive-post-item {
+    border-bottom-color: #333;
+  }
+
+  [data-theme="dark"] .archive-post-item:hover {
+    background-color: rgba(0, 138, 255, 0.05);
+  }
+
+  [data-theme="dark"] .date-month {
+    color: #5ab0ff;
+  }
+
+  [data-theme="dark"] .date-day {
+    color: #e0e0e0;
+  }
+
+  [data-theme="dark"] .archive-post-title a {
+    color: #e0e0e0;
+  }
+
+  [data-theme="dark"] .tag-mini {
+    background-color: #333;
+    color: #aaa;
+  }
+
+  @media (max-width: 576px) {
+    .archive-post-tags {
+      display: none;
+    }
+
+    .archive-post-date {
+      width: 2.5rem;
+    }
+
+    .date-month {
+      font-size: 0.6rem;
+    }
+
+    .date-day {
+      font-size: 1rem;
+    }
+
+    .archive-post-title {
+      margin-left: 0.5rem;
+    }
+  }
+</style>

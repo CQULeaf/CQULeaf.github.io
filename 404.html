@@ -1,104 +1,239 @@
 ---
 layout: default
-title: 404 - Page not found
+title: 404 - Page Not Found
 permalink: /404.html
 ---
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-  body {
-    font-family: 'Poppins', sans-serif;
-    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
-    color: black;
-    margin: 0;
-    padding: 0;
+<style>
+  .error-page {
+    min-height: calc(100vh - 200px);
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    overflow: hidden;
+    padding: 3rem 1rem;
   }
 
-  .container {
+  .error-content {
     text-align: center;
-    animation: fadeIn 2s ease-in-out;
+    max-width: 600px;
   }
 
-  @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-20px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-
-  h1 {
-    font-size: 10em;
-    margin: 0;
-    font-weight: 600;
-    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-  }
-
-  h2 {
-    font-size: 2em;
-    margin: 10px 0;
-    font-weight: 300;
-  }
-
-  p {
-    font-size: 1.2em;
-    margin: 20px 0;
-    line-height: 1.6;
-  }
-
-  .buttons {
-    margin-top: 30px;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    margin: 0 10px;
-    font-size: 1em;
-    color: black;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: translateY(-2px);
-  }
-
-  .btn-primary {
-    background-color: #ff6b6b;
-    border-color: #ff6b6b;
-  }
-
-  .btn-primary:hover {
-    background-color: #ff5252;
-    border-color: #ff5252;
-  }
-
-  .illustration {
-    margin-top: 40px;
-    max-width: 300px;
-    animation: float 4s ease-in-out infinite;
+  .error-illustration {
+    max-width: 280px;
+    margin: 0 auto 2rem;
+    animation: float 3s ease-in-out infinite;
   }
 
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    50% { transform: translateY(-15px); }
+  }
+
+  .error-code {
+    font-size: 7rem;
+    font-weight: 800;
+    font-family: 'Open Sans', sans-serif;
+    color: #008AFF;
+    margin: 0;
+    line-height: 1;
+    text-shadow: 2px 2px 0 rgba(0, 138, 255, 0.1);
+  }
+
+  .error-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    color: #404040;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .error-message {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .error-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .error-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+  }
+
+  .error-btn-primary {
+    background-color: #008AFF;
+    color: #fff;
+    border: 2px solid #008AFF;
+  }
+
+  .error-btn-primary:hover {
+    background-color: #0070cc;
+    border-color: #0070cc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 138, 255, 0.3);
+  }
+
+  .error-btn-secondary {
+    background-color: transparent;
+    color: #404040;
+    border: 2px solid #ddd;
+  }
+
+  .error-btn-secondary:hover {
+    border-color: #008AFF;
+    color: #008AFF;
+    transform: translateY(-2px);
+  }
+
+  .error-search {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+  }
+
+  .error-search p {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 1rem;
+  }
+
+  .search-box {
+    display: flex;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+
+  .search-box:focus-within {
+    border-color: #008AFF;
+  }
+
+  .search-box input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    font-family: inherit;
+  }
+
+  .search-box button {
+    padding: 0.75rem 1.25rem;
+    background-color: #008AFF;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .search-box button:hover {
+    background-color: #0070cc;
+  }
+
+  .quick-links {
+    margin-top: 2rem;
+  }
+
+  .quick-links p {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 0.75rem;
+  }
+
+  .quick-links a {
+    color: #008AFF;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .quick-links a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 576px) {
+    .error-code {
+      font-size: 5rem;
+    }
+
+    .error-title {
+      font-size: 1.4rem;
+    }
+
+    .error-message {
+      font-size: 1rem;
+    }
+
+    .error-illustration {
+      max-width: 200px;
+    }
+
+    .error-actions {
+      flex-direction: column;
+    }
+
+    .error-btn {
+      width: 100%;
+      justify-content: center;
+    }
   }
 </style>
 
-<div class="container">
-  <h1>404</h1>
-  <h2>Page Not Found</h2>
-  <p>Oops! The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
-  <div class="buttons">
-    <a href="{{ '/' | relative_url }}" class="btn btn-primary">Take Me Home</a>
+<div class="error-page">
+  <div class="error-content">
+    <img src="{{ '/assets/img/404-illustration.png' | relative_url }}" alt="404 Illustration" class="error-illustration">
+
+    <h1 class="error-code">404</h1>
+    <h2 class="error-title">Page Not Found</h2>
+    <p class="error-message">
+      Oops! The page you're looking for doesn't exist or may have been moved.
+      Don't worry, let's get you back on track.
+    </p>
+
+    <div class="error-actions">
+      <a href="{{ '/' | relative_url }}" class="error-btn error-btn-primary">
+        <i class="fas fa-home"></i>
+        Back to Home
+      </a>
+      <a href="{{ '/projects' | relative_url }}" class="error-btn error-btn-secondary">
+        <i class="fas fa-folder-open"></i>
+        View Projects
+      </a>
+    </div>
+
+    <div class="error-search">
+      <p>Or try searching for what you need:</p>
+      <form action="{{ '/search' | relative_url }}" method="get" class="search-box">
+        <input type="text" name="q" placeholder="Search..." aria-label="Search">
+        <button type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+
+    <div class="quick-links">
+      <p>You might find these helpful:</p>
+      <a href="{{ '/aboutme' | relative_url }}">About Me</a>
+      <a href="{{ '/resume' | relative_url }}">Resume</a>
+      <a href="{{ '/tags' | relative_url }}">Browse Tags</a>
+    </div>
   </div>
-  <img src="{{ '/assets/img/404-illustration.png' | relative_url }}" alt="404 Illustration" class="illustration">
 </div>
