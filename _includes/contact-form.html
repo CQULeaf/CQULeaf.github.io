@@ -1,8 +1,10 @@
+{% assign current_lang = page.lang | default: 'en' %}
+{% assign t = site.data.site-text[current_lang] | default: site.data.site-text.en %}
 <form action="https://formspree.io/f/xzbnalkj" method="POST" class="neon-form" id="contact-form">
     <div class="form-header">
       <div class="pulse-dot"></div>
-      <h3>📩 Quick Message Channel</h3>
-      <p>I WILL REPLY ASAP</p>
+      <h3>📩 {{ t.contact.header }}</h3>
+      <p>{{ t.contact.subheader }}</p>
     </div>
   
     <div class="form-grid">
@@ -15,7 +17,7 @@
                class="form-input floating-input" 
                placeholder=" "
                required>
-        <label class="floating-label">Your Name</label>
+        <label class="floating-label">{{ t.contact.name }}</label>
       </div>
   
       <!-- 邮箱输入带验证反馈 -->
@@ -29,7 +31,7 @@
                placeholder=" "
                required
                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-        <label class="floating-label">Your Email</label>
+        <label class="floating-label">{{ t.contact.email }}</label>
         <div class="validation-feedback"></div>
       </div>
   
@@ -44,19 +46,19 @@
                   rows="4"
                   maxlength="500"
                   required></textarea>
-        <label class="floating-label">The Words You Wanna Say to Me...</label>
+        <label class="floating-label">{{ t.contact.message }}</label>
         <div class="char-counter"><span>0</span>/500</div>
       </div>
     </div>
   
     <!-- 隐藏字段 -->
-    <input type="hidden" name="_subject" value="🚀 New emails from yexuhang.com">
+    <input type="hidden" name="_subject" value="🚀 {{ t.contact.subject }}">
 
-    <input type="hidden" name="_next" value="?message=The message has been successfully launched to the space station 🛰️">
+    <input type="hidden" name="_next" value="?message={{ t.contact.success_redirect | uri_escape }}%20🛰️">
   
     <!-- 动态提交按钮 -->
     <button type="submit" class="submit-btn">
-      <span class="btn-text">Send Message</span>
+      <span class="btn-text">{{ t.contact.submit }}</span>
       <div class="loading-dots">
         <div class="dot"></div>
         <div class="dot"></div>

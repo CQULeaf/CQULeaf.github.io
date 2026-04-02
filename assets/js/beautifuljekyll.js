@@ -31,6 +31,7 @@ let BeautifulJekyllJS = {
     BeautifulJekyllJS.initSearch();
 
     BeautifulJekyllJS.initThemeToggle();
+    BeautifulJekyllJS.initLanguageToggle();
   },
 
   initNavbar : function() {
@@ -142,6 +143,30 @@ let BeautifulJekyllJS = {
     // Apply saved theme on load
     const savedTheme = localStorage.getItem("theme") || "light";
     BeautifulJekyllJS.setTheme(savedTheme);
+  },
+
+  toggleTheme : function() {
+    const currentTheme = document.body.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    BeautifulJekyllJS.setTheme(nextTheme);
+    localStorage.setItem("theme", nextTheme);
+  },
+
+  initLanguageToggle : function() {
+    const currentLang = document.body.getAttribute("data-current-lang") || "en";
+    localStorage.setItem("language", currentLang);
+
+    const languageToggle = document.getElementById("language-toggle");
+    if (!languageToggle) {
+      return;
+    }
+
+    languageToggle.addEventListener("click", function() {
+      const targetLang = languageToggle.getAttribute("data-language-target");
+      if (targetLang) {
+        localStorage.setItem("language", targetLang);
+      }
+    });
   },
 
   setTheme : function(theme) {

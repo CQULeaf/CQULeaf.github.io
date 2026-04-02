@@ -1,6 +1,9 @@
 ---
 layout: default
-title: 404 - Page Not Found
+lang: en
+language: en
+translation_url: /zh/
+title: 404
 permalink: /404.html
 ---
 
@@ -202,38 +205,91 @@ permalink: /404.html
     <img src="{{ '/assets/img/404-illustration.png' | relative_url }}" alt="404 Illustration" class="error-illustration">
 
     <h1 class="error-code">404</h1>
-    <h2 class="error-title">Page Not Found</h2>
-    <p class="error-message">
-      Oops! The page you're looking for doesn't exist or may have been moved.
-      Don't worry, let's get you back on track.
-    </p>
+    <div class="error-copy" data-lang="en">
+      <h2 class="error-title">Page Not Found</h2>
+      <p class="error-message">
+        Oops! The page you're looking for doesn't exist or may have been moved.
+        Don't worry, let's get you back on track.
+      </p>
 
-    <div class="error-actions">
-      <a href="{{ '/' | relative_url }}" class="error-btn error-btn-primary">
-        <i class="fas fa-home"></i>
-        Back to Home
-      </a>
-      <a href="{{ '/projects' | relative_url }}" class="error-btn error-btn-secondary">
-        <i class="fas fa-folder-open"></i>
-        View Projects
-      </a>
+      <div class="error-actions">
+        <a href="{{ '/' | relative_url }}" class="error-btn error-btn-primary">
+          <i class="fas fa-home"></i>
+          Back to Home
+        </a>
+        <a href="{{ '/projects' | relative_url }}" class="error-btn error-btn-secondary">
+          <i class="fas fa-folder-open"></i>
+          View Projects
+        </a>
+      </div>
+
+      <div class="error-search">
+        <p>Or try searching for what you need:</p>
+        <form action="{{ '/search' | relative_url }}" method="get" class="search-box">
+          <input type="text" name="q" placeholder="Search..." aria-label="Search">
+          <button type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+
+      <div class="quick-links">
+        <p>You might find these helpful:</p>
+        <a href="{{ '/aboutme' | relative_url }}">About Me</a>
+        <a href="{{ '/resume' | relative_url }}">Resume</a>
+        <a href="{{ '/tags' | relative_url }}">Browse Tags</a>
+      </div>
     </div>
 
-    <div class="error-search">
-      <p>Or try searching for what you need:</p>
-      <form action="{{ '/search' | relative_url }}" method="get" class="search-box">
-        <input type="text" name="q" placeholder="Search..." aria-label="Search">
-        <button type="submit">
-          <i class="fas fa-search"></i>
-        </button>
-      </form>
-    </div>
+    <div class="error-copy" data-lang="zh" style="display:none;">
+      <h2 class="error-title">页面不存在</h2>
+      <p class="error-message">
+        抱歉，你访问的页面不存在，或者已经被移动了。
+        别担心，我们来带你回到正确的轨道。
+      </p>
 
-    <div class="quick-links">
-      <p>You might find these helpful:</p>
-      <a href="{{ '/aboutme' | relative_url }}">About Me</a>
-      <a href="{{ '/resume' | relative_url }}">Resume</a>
-      <a href="{{ '/tags' | relative_url }}">Browse Tags</a>
+      <div class="error-actions">
+        <a href="{{ '/zh/' | relative_url }}" class="error-btn error-btn-primary">
+          <i class="fas fa-home"></i>
+          返回首页
+        </a>
+        <a href="{{ '/zh/projects/' | relative_url }}" class="error-btn error-btn-secondary">
+          <i class="fas fa-folder-open"></i>
+          查看项目
+        </a>
+      </div>
+
+      <div class="error-search">
+        <p>或者试试搜索你需要的内容：</p>
+        <form action="{{ '/search' | relative_url }}" method="get" class="search-box">
+          <input type="text" name="q" placeholder="搜索……" aria-label="搜索">
+          <button type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+
+      <div class="quick-links">
+        <p>你也许会觉得这些页面有帮助：</p>
+        <a href="{{ '/zh/aboutme/' | relative_url }}">关于我</a>
+        <a href="{{ '/zh/resume/' | relative_url }}">简历</a>
+        <a href="{{ '/zh/tags/' | relative_url }}">浏览标签</a>
+      </div>
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var preferredLanguage = localStorage.getItem('language');
+    var currentLanguage = preferredLanguage === 'zh' || window.location.pathname.indexOf('/zh/') === 0 ? 'zh' : 'en';
+
+    document.querySelectorAll('.error-copy').forEach(function(block) {
+      block.style.display = block.getAttribute('data-lang') === currentLanguage ? '' : 'none';
+    });
+
+    if (currentLanguage === 'zh') {
+      document.documentElement.lang = 'zh-CN';
+    }
+  });
+</script>

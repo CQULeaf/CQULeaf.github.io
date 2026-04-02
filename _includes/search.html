@@ -1,34 +1,45 @@
 {% if site.post_search %}
+{% assign current_lang = page.lang | default: 'en' %}
+{% assign t = site.data.site-text[current_lang] | default: site.data.site-text.en %}
 
 <div id="beautifuljekyll-search-overlay">
 
-  <div id="nav-search-exit" title="Exit search">✕</div>
-  <input type="text" id="nav-search-input" placeholder="Search">
+  <div id="nav-search-exit" title="{{ t.search.exit }}">✕</div>
+  <input type="text" id="nav-search-input" placeholder="{{ t.search.placeholder }}">
   <ul id="search-results-container"></ul>
   
   <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
   <script>
-    var searchjson = '[ \
-      {% for post in site.posts %} \
-        { \
-          "title"    : "{% if post.title != "" %}{{ post.title | strip_html | escape }}{% else %}{{ post.excerpt | strip_html | escape | strip }}{%endif%}", \
-          "desc"     : "{% if post.title != "" %}{{ post.title | strip_html | escape }}{% else %}{{ post.excerpt | strip_html | escape | strip }}{%endif%}", \
-          "category" : "{{ post.tags | join: \', \' }}", \
-          "url"      : "{{ site.baseurl }}{{ post.url | escape }}", \
-          "date"     : "{{ post.date | date: "%B %e, %Y" | default: "January 1, 1970" }}" \
-        }, \
-      {% endfor %} \
-      {% for page in site.html_pages %}{% if page.title != "{title}" and page.title != "404 - Page not found" %} \
-        { \
-          "title"    : "{% if page.title != "" %}{{ page.title | strip_html | escape }}{% else %}{{ page.excerpt | strip_html | escape | strip }}{% endif %}", \
-          "desc"     : "{% if page.title != "" %}{{ page.title | strip_html | escape }}{% else %}{{ page.excerpt | strip_html | escape | strip }}{% endif %}", \
-          "category" : "{% if page.tags %}{{ page.tags | join: \', \' }}{% else %}page{% endif %}", \
-          "url"      : "{{ site.baseurl }}{{ page.url }}", \
-          "date"     : "{{ page.date | date: '%B %e, %Y' | default: "January 1, 1970" }}" \
-        }{% unless forloop.last %},{% endunless %} \
-      {% endif %}{% endfor %} \
-    ]';
-    searchjson = JSON.parse(searchjson);
+    var searchjson = [
+      {% assign first_result = true %}
+      {% for post in site.posts %}
+        {% if post.lang == current_lang %}
+          {% unless first_result %},{% endunless %}
+          {
+            "title": {% if post.title != "" %}{{ post.title | strip_html | jsonify }}{% else %}{{ post.excerpt | strip_html | strip | jsonify }}{% endif %},
+            "desc": {% if post.title != "" %}{{ post.title | strip_html | jsonify }}{% else %}{{ post.excerpt | strip_html | strip | jsonify }}{% endif %},
+            "category": {{ post.tags | join: ", " | jsonify }},
+            "url": {{ post.url | jsonify }},
+            "date": {{ post.date | date: "%B %e, %Y" | jsonify }}
+          }
+          {% assign first_result = false %}
+        {% endif %}
+      {% endfor %}
+      {% for search_page in site.html_pages %}
+        {% assign page_lang = search_page.lang | default: 'en' %}
+        {% if page_lang == current_lang and search_page.title != "{title}" and search_page.title != "404 - Page not found" and search_page.title != "404 - 页面未找到" %}
+          {% unless first_result %},{% endunless %}
+          {
+            "title": {% if search_page.title != "" %}{{ search_page.title | strip_html | jsonify }}{% else %}{{ search_page.excerpt | strip_html | strip | jsonify }}{% endif %},
+            "desc": {% if search_page.title != "" %}{{ search_page.title | strip_html | jsonify }}{% else %}{{ search_page.excerpt | strip_html | strip | jsonify }}{% endif %},
+            "category": {% if search_page.tags %}{{ search_page.tags | join: ", " | jsonify }}{% else %}"page"{% endif %},
+            "url": {{ search_page.url | jsonify }},
+            "date": {{ search_page.date | date: "%B %e, %Y" | default: "January 1, 1970" | jsonify }}
+          }
+          {% assign first_result = false %}
+        {% endif %}
+      {% endfor %}
+    ];
 
     var sjs = SimpleJekyllSearch({
       searchInput: document.getElementById('nav-search-input'),

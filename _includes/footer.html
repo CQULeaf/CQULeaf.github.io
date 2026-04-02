@@ -1,3 +1,9 @@
+{% assign current_lang = page.lang | default: 'en' %}
+{% assign t = site.data.site-text[current_lang] | default: site.data.site-text.en %}
+{% assign footer_home = '/' %}
+{% if current_lang == 'zh' %}
+  {% assign footer_home = '/zh/' %}
+{% endif %}
 <footer>
   <div class="container-md beautiful-jekyll-footer">
     <div class="row">
@@ -20,25 +26,25 @@
       {% if site.url-pretty %}
         &nbsp;&bull;&nbsp;
         <span class="author-site">
-          <a href="{% if site.url-canonical %}{{ site.url-canonical }}{% else %}{{ '/' | absolute_url }}{% endif %}">{{ site.url-pretty }}</a>
+          <a href="{% if site.url-canonical %}{{ site.url-canonical }}{% else %}{{ footer_home | relative_url }}{% endif %}">{{ t.site_name | default: site.url-pretty }}</a>
         </span>
       {% endif %}
 
       {% if site.matomo %}
         {% if site.matomo.opt-out %}
           &nbsp;&bull;&nbsp;
-          <a href="http://{{- site.matomo.uri -}}/index.php?module=CoreAdminHome&action=optOut" target="_blank" class="text_muted">Do-not-Track</a>
+          <a href="http://{{- site.matomo.uri -}}/index.php?module=CoreAdminHome&action=optOut" target="_blank" class="text_muted">{{ t.footer.do_not_track }}</a>
         {% endif %}
       {% endif%}
 
       {% if site.edit_page_button and site.github.repository_url %}
         &nbsp;&bull;&nbsp;
-        <a title="Edit this page on GitHub" href="{{ site.github.repository_url }}/edit/{{ site.github.source.branch }}/{{ page.path }}" class="text_muted">Edit page</a>
+        <a title="{{ t.footer.edit_page }} on GitHub" href="{{ site.github.repository_url }}/edit/{{ site.github.source.branch }}/{{ page.path }}" class="text_muted">{{ t.footer.edit_page }}</a>
        {% endif%}
 
       </p>
       {% unless site.remove-ads %}<p class="theme-by text-muted">
-        Powered by
+        {{ t.footer.powered_by }}
         <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
       </p>{% endunless %}
       </div>

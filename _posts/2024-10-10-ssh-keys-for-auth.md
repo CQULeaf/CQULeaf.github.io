@@ -1,5 +1,8 @@
 ---
 layout: post
+lang: en
+language: en
+translation_url: /zh/2024-10-10-ssh-keys-for-auth/
 title: Setting Up SSH Keys for GitHub Authentication
 subtitle: A Step-by-Step Guide to Secure and Simplified GitHub Authentication
 tags: [Trivial Tech Knowledge]

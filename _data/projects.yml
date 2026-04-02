@@ -1,0 +1,143 @@
+- time: "2025.02 - 2025.06"
+  title:
+    en: "Compilers"
+    zh: "编译原理"
+  description:
+    en: "Compiler Principles course of Stanford CS143"
+    zh: "斯坦福 CS143 编译原理课程项目与学习记录"
+  link: "https://github.com/CQULeaf/Compilers_Course_Resources"
+  logo: "/assets/img/project-logos/compilers.png"
+  alt: "Compilers"
+  tags: ["C++", "Java", "COOL", "MIPS"]
+
+- time: "2024.09 - 2025.01"
+  title:
+    en: "Computer Networking"
+    zh: "计算机网络"
+  description:
+    en: "Computer Networking course of Stanford CS144"
+    zh: "斯坦福 CS144 计算机网络课程项目与学习记录"
+  link: "https://github.com/CQULeaf/Computer-Networking_Course_Resources"
+  logo: "/assets/img/project-logos/Computer-Networking.png"
+  alt: "Computer Networking"
+  tags: ["C++"]
+
+- time: "2024.09 - 2025.01"
+  title:
+    en: "Operating System"
+    zh: "操作系统"
+  description:
+    en: "Operating System course of MIT 6.S081"
+    zh: "MIT 6.S081 操作系统课程项目与学习记录"
+  link: "https://github.com/CQULeaf/Operating-System_Course_Resources"
+  logo: "/assets/img/project-logos/Operating-System.png"
+  alt: "Operating System"
+  tags: ["C", "RISC-V"]
+
+- time: "2024.09 - 2025.01"
+  title:
+    en: "Big Data"
+    zh: "大数据"
+  description:
+    en: "Build a distributed cloud service using Hadoop and Spark for large-scale data analysis."
+    zh: "使用 Hadoop 和 Spark 构建分布式云服务，完成大规模数据分析任务。"
+  link: "https://github.com/CQULeaf/Big-Data_Course_Resources"
+  logo: "/assets/img/project-logos/Big-Data.png"
+  alt: "Big Data"
+  tags: ["Hadoop", "Spark", "Python", "Distributed Cloud Service", "Machine Learning", "Deep Learning"]
+
+- time: "2024.09 - 2025.01"
+  title:
+    en: "HarmonyOS App Development"
+    zh: "HarmonyOS 应用开发"
+  description:
+    en: "Develop some interesting Apps based on HarmonyOS"
+    zh: "基于 HarmonyOS 开发一些有趣的应用。"
+  link: "https://github.com/CQULeaf/HarmonyOS-App-Development"
+  logo: "/assets/img/project-logos/HarmonyOS-App-Development.png"
+  alt: "HarmonyOS App Development"
+  tags: ["ArkTS", "ArkUI", "Spring Boot", "MyBatis Plus", "MySQL"]
+
+- time: "2024.07 - 2024.08"
+  title:
+    en: "ConvoCorner"
+    zh: "ConvoCorner"
+  description:
+    en: "A comprehensive social APP for college students"
+    zh: "一款面向大学生的综合社交应用。"
+  link: "https://github.com/CQULeaf/Summer-Internship-Frontend-Repo"
+  logo: "/assets/img/project-logos/ConvoCorner.png"
+  alt: "ConvoCorner"
+  tags: ["uni-app", "Vue", "Html-Css-JavaScript", "Spring Boot", "Mybatis Plus", "MySQL", "Alibaba Cloud OSS", "WebSocket", "Java", "Maven", "TypeScript", "Element Plus"]
+
+- time: "2024.02 - 2024.06"
+  title:
+    en: "Math Experiment"
+    zh: "数学实验"
+  description:
+    en: "Use Python and its related libraries to solve mathematical models and draw graphs"
+    zh: "使用 Python 及相关科学计算库求解数学模型并绘制图形。"
+  link: "https://github.com/CQULeaf/MathExperiment_Course_Resources"
+  logo: "/assets/img/project-logos/MathExperiment.png"
+  alt: "Math Experiment"
+  tags: ["Python", "Numpy", "Scipy", "Pandas", "Sympy", "Matplotlib", "Seaborn"]
+
+- time: "2024.02 - 2024.06"
+  title:
+    en: "Machine Learning"
+    zh: "机器学习"
+  description:
+    en: "Machine Learning course of Andrew Ng Coursera"
+    zh: "Andrew Ng Coursera 机器学习课程项目与学习记录"
+  link: "https://github.com/CQULeaf/MachineLearning_Course_Resources"
+  logo: "/assets/img/project-logos/MachineLearning.png"
+  alt: "Machine Learning"
+  tags: ["Python", "Supervised Learning", "Unsupervised Learning", "Reinforcement Learning", "Neural Networks", "Recommender System"]
+
+- time: "2024.02 - 2024.06"
+  title:
+    en: "Database Systems"
+    zh: "数据库系统"
+  description:
+    en: "Database Systems course of CMU 15-445"
+    zh: "CMU 15-445 数据库系统课程项目与学习记录"
+  link: "https://github.com/CQULeaf/Database_Systems_Course_Resources"
+  logo: "/assets/img/project-logos/DatabaseSystems.png"
+  alt: "Database Systems"
+  tags: ["C++", "DBMS", "Data Structure"]
+
+- time: "2024.02 - 2024.06"
+  title:
+    en: "DigitalDesign ComputerArch"
+    zh: "数字设计与计算机体系结构"
+  description:
+    en: "Digital Design and Computer Architecture course of ETH Zurich"
+    zh: "ETH Zurich 数字设计与计算机体系结构课程项目与学习记录"
+  link: "https://github.com/CQULeaf/DigitalDesign-ComputerArch_Course_Resources"
+  logo: "/assets/img/project-logos/DDCA.png"
+  alt: "DigitalDesign ComputerArch"
+  tags: ["C", "Verilog", "MIPS", "Assembly"]
+
+- time: "2023.09 - 2024.01"
+  title:
+    en: "DataStructure Algorithm"
+    zh: "数据结构与算法"
+  description:
+    en: "Include common data structures and algorithms implemented in C++ & Python"
+    zh: "收录使用 C++ 与 Python 实现的常见数据结构与算法。"
+  link: "https://github.com/CQULeaf/DataStructure-Algorithm_Course_Resources"
+  logo: "/assets/img/project-logos/DataStructure-Algorithm.png"
+  alt: "DataStructure Algorithm"
+  tags: ["Data Structures", "Algorithms", "C++"]
+
+- time: "2023.09 - 2023.10"
+  title:
+    en: "Xuhang Ye Website"
+    zh: "叶旭航个人网站"
+  description:
+    en: "Personal static website based on Jekyll and Ruby"
+    zh: "基于 Jekyll 与 Ruby 构建的个人静态网站。"
+  link: "https://github.com/CQULeaf/CQULeaf.github.io"
+  logo: "/assets/img/project-logos/yxh-website.png"
+  alt: "Website of Xuhang Ye"
+  tags: ["Personal Website", "Jekyll", "Ruby", "Html-Css-JavaScript", "GitHub Action"]

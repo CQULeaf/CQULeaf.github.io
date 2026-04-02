@@ -1,15 +1,15 @@
 ---
 layout: page
-lang: en
-language: en
-translation_url: /zh/tags/
-title: 'Tag Index'
+lang: zh
+language: zh-CN
+translation_url: /tags/
+title: '标签索引'
 ---
 
 {% assign current_lang = page.lang | default: 'en' %}
 {% assign t = site.data.site-text[current_lang] | default: site.data.site-text.en %}
 {% assign tag_labels = t.tag_labels | default: site.data.site-text.en.tag_labels %}
-{% assign date_format = "%B %-d, %Y" %}
+{% assign date_format = "%Y年%-m月%-d日" %}
 {% assign lang_posts = site.posts | where: "lang", current_lang %}
 {% assign raw_tags = "" | split: "" %}
 {% for post in lang_posts %}

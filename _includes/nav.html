@@ -1,9 +1,38 @@
+{% assign current_lang = page.lang | default: 'en' %}
+{% assign t = site.data.site-text[current_lang] | default: site.data.site-text.en %}
+{% assign nav_root = '/' %}
+{% if current_lang == 'zh' %}
+  {% assign nav_root = '/zh/' %}
+{% endif %}
+{% assign blog_path = '/' %}
+{% assign projects_path = '/projects/' %}
+{% assign about_path = '/aboutme/' %}
+{% assign resume_path = '/resume/' %}
+{% if current_lang == 'zh' %}
+  {% assign blog_path = '/zh/' %}
+  {% assign projects_path = '/zh/projects/' %}
+  {% assign about_path = '/zh/aboutme/' %}
+  {% assign resume_path = '/zh/resume/' %}
+{% endif %}
+{% assign language_target = page.translation_url %}
+{% if language_target == nil or language_target == '' %}
+  {% if current_lang == 'zh' %}
+    {% assign language_target = '/' %}
+  {% else %}
+    {% assign language_target = '/zh/' %}
+  {% endif %}
+{% endif %}
+{% assign language_target_code = 'ZH' %}
+{% if current_lang == 'zh' %}
+  {% assign language_target_code = 'EN' %}
+{% endif %}
+
 <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom {% if page.nav-short %}top-nav-short-permanent{% else %}top-nav-regular{% endif %}" data-theme="light">
 
   {%- if site.title-img -%}
-    <a class="navbar-brand navbar-brand-logo" href="{{ '/' | absolute_url }}"><img alt="{{ site.title }} Logo" src="{{ site.title-img | relative_url}}"/></a>
+    <a class="navbar-brand navbar-brand-logo" href="{{ nav_root | absolute_url }}"><img alt="{{ t.site_title }} Logo" src="{{ site.title-img | relative_url}}"/></a>
   {%- elsif site.title -%}
-    <a class="navbar-brand" href="{{ '/' | absolute_url }}">{{ site.title }}</a>
+    <a class="navbar-brand" href="{{ nav_root | absolute_url }}">{{ t.site_title }}</a>
   {%- endif -%}
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,36 +41,35 @@
 
   <div class="collapse navbar-collapse" id="main-navbar">
     <ul class="navbar-nav ml-auto">
-      {%- for link in site.navbar-links -%}
-        {%- if link[1].first %}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ link[0] }}</a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              {%- for childlink in link[1] -%}
-                {%- for linkparts in childlink %}
-                  <a class="dropdown-item" href="{{ linkparts[1] | relative_url }}">{{ linkparts[0] }}</a>
-                {%- endfor -%}
-              {%- endfor %}
-            </div>
-          </li>
-        {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
-          </li>
-        {%- endif -%}
-      {%- endfor -%}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ blog_path | relative_url }}">{{ t.nav.blog }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ projects_path | relative_url }}">{{ t.nav.projects }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ about_path | relative_url }}">{{ t.nav.about }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ resume_path | relative_url }}">{{ t.nav.resume }}</a>
+      </li>
       {% if site.post_search %}
         <li class="nav-item">
-          <a class="nav-link" id="nav-search-link" href="#" title="Search">
+          <a class="nav-link" id="nav-search-link" href="#" title="{{ t.nav.search }}">
             <span id="nav-search-icon" class="fa fa-search"></span>
-            <span id="nav-search-text">Search</span>
+            <span id="nav-search-text">{{ t.nav.search }}</span>
           </a>
         </li>
       {%- endif -%}
 
       <li class="nav-item">
-        <a class="nav-link theme-toggle" id="theme-toggle" href="#" onclick="var t=document.body.getAttribute('data-theme')==='dark'?'light':'dark';document.body.setAttribute('data-theme',t);document.querySelectorAll('.navbar-custom').forEach(function(n){n.setAttribute('data-theme',t)});var i=document.getElementById('theme-icon');if(i)i.className=t==='dark'?'fa fa-sun':'fa fa-moon';localStorage.setItem('theme',t);return false;">
+        <a class="nav-link theme-toggle" id="theme-toggle" href="#" title="{{ t.nav.toggle_theme }}" onclick="BeautifulJekyllJS.toggleTheme(); return false;">
           <span id="theme-icon" class="fa fa-moon"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link language-toggle" id="language-toggle" href="{{ language_target | relative_url }}" title="{{ t.nav.toggle_language }}" aria-label="{{ t.nav.toggle_language }}" data-language-target="{% if current_lang == 'zh' %}en{% else %}zh{% endif %}">
+          <span class="language-toggle-label" lang="en">{{ language_target_code }}</span>
         </a>
       </li>
     </ul>
@@ -56,7 +84,7 @@
   {% if site.avatar and page.show-avatar != false %}
     <div class="avatar-container">
       <div class="avatar-img-border">
-        <a href="{{ '/' | absolute_url }}">
+        <a href="{{ nav_root | absolute_url }}">
           <img alt="Navigation bar avatar" class="avatar-img" src="{{ site.avatar | relative_url }}" />
         </a>
       </div>

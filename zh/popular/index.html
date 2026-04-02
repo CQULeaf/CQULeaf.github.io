@@ -1,10 +1,10 @@
 ---
 layout: page
-lang: en
-language: en
-translation_url: /zh/popular/
-title: Most Popular
-subtitle: Most viewed posts
+lang: zh
+language: zh-CN
+translation_url: /popular/
+title: 热门文章
+subtitle: 浏览量最高的文章
 ---
 {% assign current_lang = page.lang | default: 'en' %}
 {% assign t = site.data.site-text[current_lang] | default: site.data.site-text.en %}
@@ -32,8 +32,6 @@ subtitle: Most viewed posts
     views: {{ t.popular_page.views | jsonify }}
   };
 
-  // Posts data from Jekyll (will be populated at build time via Jekyll variables)
-  // Since this is a static site, we need to handle sorting client-side
   var posts = [
     {% for post in site.posts %}{% if post.lang == current_lang %}
       {
@@ -46,23 +44,19 @@ subtitle: Most viewed posts
     {% endif %}{% endfor %}
   ];
 
-  // Get view count from localStorage
   function getViewCount(url) {
     var key = 'page_views_' + url;
     return parseInt(localStorage.getItem(key) || '0', 10);
   }
 
-  // Add view counts to posts
   posts.forEach(function(post) {
     post.views = getViewCount(post.url);
   });
 
-  // Sort by views descending
   posts.sort(function(a, b) {
     return b.views - a.views;
   });
 
-  // Format number for display
   function formatNumber(num) {
     if (num >= 1000000) {
       return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
@@ -73,17 +67,11 @@ subtitle: Most viewed posts
     return num.toString();
   }
 
-  // Format date
   function formatDate(dateStr) {
     var date = new Date(dateStr);
-    if (currentLang === 'zh') {
-      return date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日';
-    }
-    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    return months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+    return date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日';
   }
 
-  // Render the list
   var container = document.getElementById('popular-list');
 
   if (posts.length === 0) {

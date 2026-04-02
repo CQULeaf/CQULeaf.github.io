@@ -1,10 +1,10 @@
 ---
 layout: page
-lang: en
-language: en
-translation_url: /zh/archive/
-title: Archive
-subtitle: All posts organized by date
+lang: zh
+language: zh-CN
+translation_url: /archive/
+title: 归档
+subtitle: 按时间整理的全部文章
 ---
 
 {% assign current_lang = page.lang | default: 'en' %}
@@ -26,7 +26,7 @@ subtitle: All posts organized by date
         {% for post in sorted_posts %}
           <div class="archive-post-item">
             <span class="archive-post-date">
-              <span class="date-month">{{ post.date | date: "%b" }}</span>
+              <span class="date-month">{{ post.date | date: "%m月" }}</span>
               <span class="date-day">{{ post.date | date: "%-d" }}</span>
             </span>
             <span class="archive-post-title">
@@ -118,7 +118,6 @@ subtitle: All posts organized by date
     font-size: 0.7rem;
     font-weight: 600;
     color: #008AFF;
-    text-transform: uppercase;
   }
 
   .date-day {

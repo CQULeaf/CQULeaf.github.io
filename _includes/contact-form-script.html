@@ -1,0 +1,34 @@
+document.addEventListener('DOMContentLoaded', function() {
+  var textarea = document.querySelector('textarea');
+  var contactForm = document.getElementById('contact-form');
+
+  if (textarea) {
+    textarea.addEventListener('input', function(e) {
+      var counter = e.target.parentElement.querySelector('.char-counter span');
+      if (counter) {
+        counter.textContent = e.target.value.length;
+      }
+    });
+  }
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function() {
+      var btn = this.querySelector('.submit-btn');
+      if (!btn) {
+        return;
+      }
+
+      btn.style.width = btn.offsetWidth + 'px';
+
+      var btnText = btn.querySelector('.btn-text');
+      if (btnText) {
+        btnText.style.opacity = '0';
+      }
+
+      var loadingDots = btn.querySelector('.loading-dots');
+      if (loadingDots) {
+        loadingDots.style.display = 'flex';
+      }
+    });
+  }
+});

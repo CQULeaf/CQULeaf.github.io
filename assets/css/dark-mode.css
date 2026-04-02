@@ -234,6 +234,44 @@ body #theme-icon {
   opacity: 1;
 }
 
+.language-toggle {
+  cursor: pointer;
+  opacity: 0.72;
+  transition: opacity 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.language-toggle:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.language-toggle-label {
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  color: inherit;
+}
+
+.navbar-custom .language-toggle {
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+
+.navbar-custom .language-toggle:hover,
+.navbar-custom .language-toggle:focus {
+  text-decoration: none;
+}
+
+body .language-toggle-label {
+  color: #404040 !important;
+}
+
+body[data-theme="dark"] .language-toggle-label {
+  color: #e0e0e0 !important;
+}
+
 /* ===== List Filters ===== */
 body[data-theme="dark"] .list-filters .list-filter {
   border-color: #404040 !important;

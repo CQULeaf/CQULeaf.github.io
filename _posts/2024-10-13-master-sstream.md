@@ -1,5 +1,8 @@
 ---
 layout: post
+lang: en
+language: en
+translation_url: /zh/2024-10-13-master-sstream/
 title: Mastering `std::stringstream` in C++ for Easy String Manipulation
 subtitle: Learn how to leverage the powerful capabilities of `std::stringstream` for parsing and formatting strings in C++
 tags: [Trivial Tech Knowledge, Coding Exercises]

@@ -18,13 +18,14 @@ common-ext-js:
 common-js:
   - "/assets/js/beautifuljekyll.js"
 ---
+{% assign current_lang = page.lang | default: 'en' %}
 
 <!DOCTYPE html>
 <html lang="{{ page.language | default: site.language | default: 'en' }}">
 <!-- Beautiful Jekyll 6.0.1 | Copyright Dean Attali 2023 -->
 {% include head.html %}
 
-<body>
+<body data-current-lang="{{ current_lang }}" data-translation-url="{{ page.translation_url | default: '' }}">
   <script>
     (function() {
       var theme = localStorage.getItem('theme');

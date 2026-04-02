@@ -1,0 +1,139 @@
+.neon-form {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.icon-container {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  z-index: 1;
+}
+
+.floating-input {
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  padding: 1rem 1rem 1rem 3.5rem;
+  color: black;
+  width: 100%;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.floating-input:focus {
+  border-color: #008AFF;
+  box-shadow: 0 0 0 3px rgba(0, 138, 255, 0.2);
+  outline: none;
+}
+
+.floating-label {
+  position: absolute;
+  left: 3.5rem;
+  top: 1rem;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  color: #888;
+  background: white;
+  padding: 0 0.25rem;
+  font-size: 1rem;
+}
+
+.floating-input:focus + .floating-label,
+.floating-input:not(:placeholder-shown) + .floating-label {
+  top: -0.5rem;
+  left: 2.5rem;
+  font-size: 0.8rem;
+  color: #008AFF;
+}
+
+.message-group .floating-input {
+  padding-top: 1.5rem;
+  min-height: 120px;
+}
+
+.message-group .floating-label {
+  top: 1.5rem;
+}
+
+.message-group .floating-input:focus + .floating-label,
+.message-group .floating-input:not(:placeholder-shown) + .floating-label {
+  top: -0.5rem;
+}
+
+.char-counter {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #008AFF 0%, #7c3aed 100%);
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 138, 255, 0.4);
+}
+
+.loading-dots {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .neon-form {
+    padding: 1.5rem;
+  }
+
+  .floating-input {
+    padding-left: 3rem;
+  }
+
+  .icon-container {
+    left: 0.75rem;
+  }
+
+  .floating-label {
+    left: 3rem;
+  }
+
+  .floating-input:focus + .floating-label,
+  .floating-input:not(:placeholder-shown) + .floating-label {
+    left: 2rem;
+  }
+}

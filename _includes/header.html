@@ -1,4 +1,9 @@
-{% assign date_format = site.date_format | default: "%B %-d, %Y" %}
+{% assign current_lang = page.lang | default: 'en' %}
+{% assign t = site.data.site-text[current_lang] | default: site.data.site-text.en %}
+{% assign date_format = "%B %-d, %Y" %}
+{% if current_lang == 'zh' %}
+  {% assign date_format = "%Y年%-m月%-d日" %}
+{% endif %}
 
 {% if page.cover-img %}
   <div id="header-big-imgs" data-num-img={% if page.cover-img.first %}{{ page.cover-img.size }}{% else %}1{% endif %}
@@ -35,13 +40,13 @@
           
           {% if include.type == "post" %} 
             {% if page.author %}
-              By <strong>{{ page.author | strip_html }}</strong><br>
+              {{ t.home.by }} <strong>{{ page.author | strip_html }}</strong><br>
             {% endif%}
-            <span class="post-meta">Posted on {{ page.date | date: date_format }}</span>
+            <span class="post-meta">{{ t.post.posted_on }} {{ page.date | date: date_format }}</span>
             {% if page.last-updated %}
               <span class="post-meta">
                 <span class="d-none d-md-inline middot">&middot;</span>
-                Last updated {{ page.last-updated | date: date_format }}
+                {{ t.post.last_updated }} {{ page.last-updated | date: date_format }}
               </span>
             {% endif %}
             {% if page.readtime %}

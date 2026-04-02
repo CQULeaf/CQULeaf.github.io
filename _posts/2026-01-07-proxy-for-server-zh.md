@@ -1,28 +1,29 @@
 ---
 layout: post
-lang: en
-language: en
-translation_url: /zh/2026-01-07-proxy-for-server/
-title: Setting Up a Proxy for the Cloud Server
-subtitle: 
+lang: zh
+language: zh-CN
+translation_url: /2026-01-07-proxy-for-server/
+permalink: /zh/2026-01-07-proxy-for-server/
+title: 为云服务器配置代理
+subtitle:
 tags: [Proxy, Cloud Server]
 readtime: true
 ---
 
-For a brand new domestic Linux cloud server, network issues are often a significant obstacle that limits our learning and research. Similar to PCs, we can completely utilize proxies on cloud servers to resolve network issues and facilitate scientific research progress.
+对于一台全新的国内 Linux 云服务器来说，网络问题往往是限制学习和科研效率的重要障碍。和个人电脑类似，我们也完全可以在云服务器上使用代理，从而解决网络访问问题，更顺畅地开展学习与研究。
 
-## Two Core Steps
+## 两个核心步骤
 
-1. **Install a "proxy client" software:** This type of software is lightweight and efficient, making it suitable for server environments. Its sole purpose is to connect to a remote proxy server.
-2. **Configure system environment variables:** It acts as a "global proxy switch." When the client software is running in the background and has created a local proxy channel (`127.0.0.1:1080`), we need to tell other programs on the server to send all network requests to this local address, `127.0.0.1:1080`.
+1. **安装一个“代理客户端”软件**：这类软件通常轻量高效，非常适合服务器环境，它的职责就是连接远端代理服务器。
+2. **配置系统环境变量**：这一步相当于打开“全局代理开关”。当客户端在后台运行，并建立了本地代理通道（例如 `127.0.0.1:1080`）之后，我们还需要告诉服务器上的其他程序，把网络请求发往这个本地地址。
 
-## Step-by-step Guidance
+## 分步指南
 
-### Download and Install v2ray-core
+### 下载并安装 v2ray-core
 
-Initially, we didn't have a proxy, and it wasn't convenient to download `v2ray-core` directly onto the cloud server. We can download [this](https://github.com/v2fly/v2ray-core/releases) (I choose `v2ray-linux-64.zip` for my usage) on our PC first and then transfer the uncompressed folder to the cloud server (to the `/home` directory) using Xftp 7.
+一开始服务器本身还没有代理，因此直接在云服务器上下载 `v2ray-core` 并不方便。我们可以先在个人电脑上下载 [这个发布页中的文件](https://github.com/v2fly/v2ray-core/releases)（我这里使用的是 `v2ray-linux-64.zip`），解压后再通过 Xftp 7 把文件夹传到云服务器的 `/home` 目录。
 
-After that, we should do the following things on the cloud server in the `/home/v2ray-linux-64`.
+之后，在云服务器的 `/home/v2ray-linux-64` 目录执行以下操作：
 
 ```bash
 # Move the v2ray main program to the system directory.
@@ -39,17 +40,17 @@ sudo mv geoip.dat geosite.dat geoip-only-cn-private.dat /usr/local/share/v2ray/
 sudo mkdir -p /usr/local/etc/v2ray
 ```
 
-### Edit Configuration File
+### 编辑配置文件
 
-We can follow the official [start guidance](https://www.v2fly.org/guide/start.html) to edit our own config file.
+我们可以参考官方的[入门指南](https://www.v2fly.org/guide/start.html)来编写自己的配置文件。
 
-Now create our own config file
+先创建配置文件：
 
 ```bash
 sudo vim /usr/local/etc/v2ray/config.json
 ```
 
-and then paste the below codes and modify the corresponding things (like the server address, port and UUID)
+然后粘贴下面这段内容，并把对应字段替换成你自己的配置（比如服务器地址、端口和 UUID）：
 
 ```json
 {
@@ -101,11 +102,11 @@ and then paste the below codes and modify the corresponding things (like the ser
 }
 ```
 
-### Run the v2ray
+### 运行 v2ray
 
-For convenience, we created an automated script to manage the proxy.
+为了更方便地管理代理，我写了一个自动化脚本。
 
-we run `vim ~/proxy_manager.sh` and then paste the below content.
+执行 `vim ~/proxy_manager.sh`，然后粘贴下面的内容：
 
 ```bash
 #!/bin/bash
@@ -206,29 +207,19 @@ case "$1" in
 esac
 ```
 
-Finally we run `chmod +x ~/proxy_manager.sh` to grant permissions.
+最后执行 `chmod +x ~/proxy_manager.sh` 来赋予执行权限。
 
-The above script provides us with 4 options (start, stop, status and restart). For example, we can run `source ~/proxy_manager.sh start` to start the proxy.
+上面的脚本提供了 4 个常用选项：`start`、`stop`、`status` 和 `restart`。例如，我们可以运行 `source ~/proxy_manager.sh start` 来启动代理。
 
-For more convenience, we can create an alias. Add `alias proxy='source ~/proxy_manager.sh'` in `~/.bashrc` and then we can simply run `proxy start` to start it.
+为了更方便，也可以在 `~/.bashrc` 中加入 `alias proxy='source ~/proxy_manager.sh'`，这样之后只需要执行 `proxy start` 即可。
 
-### Perform Some Tests
+### 做一些测试
 
-Finally, we can perform some tests to help us verify that V2Ray is running correctly.
+最后，我们可以做一些简单测试，确认 V2Ray 是否已经正常运行：
 
 ```bash
 # Check the process
 ps aux | grep v2ray
 
 # Check the port listening status and you should see 127.0.0.1:1080
-netstat -tlnp | grep v2ray
-
-# Test proxy connection and you should see your server address
-curl --socks5 127.0.0.1:1080 -m 10 http://httpbin.org/ip
-
-# View real-time logs
-tail -f /tmp/v2ray.log
-
-# Ping the github.com
-curl -I https://github.com
 ```

@@ -1,5 +1,8 @@
 ---
 layout: post
+lang: en
+language: en
+translation_url: /zh/2024-07-05-code-review/
 title: Learn to Perform a good Code Review
 subtitle: Make the software development process more efficient
 tags: [Software Development]

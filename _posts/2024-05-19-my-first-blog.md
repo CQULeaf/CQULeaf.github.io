@@ -1,5 +1,8 @@
 ---
 layout: post
+lang: en
+language: en
+translation_url: /zh/2024-05-19-my-first-blog/
 title: Start from Here & To Be a BDD
 subtitle: Write, write and write
 tags: [Ideas and Insights]
