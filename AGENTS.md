@@ -96,6 +96,17 @@ Do not treat generated files or dependency directories as source content.
 - If a change touches shared layout, configuration, or integrations, check its site-wide impact before editing.
 - If a task is mainly content-related, avoid unnecessary infrastructure or theme refactors.
 
+### Writing Rules
+
+- When asked to write or update a blog post, produce both English and Chinese versions by default unless the user explicitly asks for a single-language draft.
+- Keep the English and Chinese posts aligned in structure, core ideas, and examples, but do not force a rigid sentence-by-sentence translation.
+- Match the existing blog voice: personal, direct, reflective, practical, and easy to follow.
+- Avoid overly academic wording, inflated marketing language, or obvious AI-style phrasing.
+- Keep articles readable: short to medium paragraphs, clear section titles, concrete examples, and no unnecessary length.
+- Prefer complete but compact posts. The goal is to say enough, not to say everything.
+- When online research is requested, prefer first-party or primary sources and weave them into the article naturally with links where useful.
+- For new bilingual posts, make sure `translation_url`, language metadata, and permalink behavior stay correctly paired.
+
 ## 7. Reporting Expectations
 
 When reporting completed work, include:
