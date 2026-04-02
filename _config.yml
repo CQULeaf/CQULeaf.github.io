@@ -296,6 +296,10 @@ exclude:
   - LICENSE
   - README.md
   - screenshot.png
+  - vendor
+  - .bundle
+  - .gem
+  - .gem32
   - docs/
 
 plugins:
@@ -304,4 +308,3 @@ plugins:
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
-

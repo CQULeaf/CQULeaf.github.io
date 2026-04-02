@@ -1,11 +1,12 @@
 # frozen_string_literal: true
-gem "tzinfo"
-gem "tzinfo-data"
 
 source "https://rubygems.org"
 
-gemspec
+gem "jekyll", "~> 3.9.3"
+gem "jekyll-paginate", "~> 1.1"
+gem "jekyll-sitemap", "~> 1.4"
+gem "kramdown", "~> 2.3"
+gem "kramdown-parser-gfm", "~> 1.1"
+gem "webrick", "~> 1.8"
 
-gem "csv"
-gem "base64"
-gem "bigdecimal"
+gem "tzinfo-data"

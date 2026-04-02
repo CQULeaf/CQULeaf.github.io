@@ -2,6 +2,11 @@
 _site
 .sass-cache
 .vagrant
+.bundle/
+.gem/
+.gem32/
+vendor/bundle/
+.codex
 
 # general
 .DS_Store
