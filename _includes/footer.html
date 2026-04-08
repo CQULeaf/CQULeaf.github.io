@@ -9,9 +9,10 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
       {% include social-networks-links.html %}
-      {% if page.footer-extra %}
+      {% assign footer_extra_files = page.footer-extra | default: site.footer-extra %}
+      {% if footer_extra_files %}
         <div class="footer-custom-content">
-          {% for file in page.footer-extra %}
+          {% for file in footer_extra_files %}
             {% include {{ file }} %}
           {% endfor %}
         </div>

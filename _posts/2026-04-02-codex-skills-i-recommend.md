@@ -7,6 +7,9 @@ title: The Codex Skills I Actually Recommend Right Now
 subtitle: A practical shortlist after building, debugging, and writing with it for real
 tags: [Ideas and Insights, Software Development]
 readtime: true
+share-title: The Codex Skills I Actually Recommend Right Now
+share-description: A practical shortlist of the Codex skills I keep returning to for research, writing, review, and real development workflows.
+share-img: /assets/img/project-logos/yxh-website.png
 ---
 
 For quite a while, I treated skills as something optional in Codex. I thought the model itself was already the main thing, so extra skills were probably just nice-to-have decorations.

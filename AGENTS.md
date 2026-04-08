@@ -25,11 +25,14 @@ For most tasks, start by reading these files or directories:
 
 - `README.md`
 - `_config.yml`
+- `_data/site-text.yml`
 - `index.html`
 - `_posts/`
 - `aboutme.html`
+- `now.html`
 - `projects.html`
 - `resume.html`
+- `start-here.html`
 - `scripts/dev.sh`
 - `scripts/clean.sh`
 
@@ -62,7 +65,9 @@ Current local workflow notes:
 Safe by default:
 
 - `_posts/`
-- top-level pages such as `index.html`, `aboutme.html`, `projects.html`, `resume.html`, `archive.html`, `popular.html`, `tags.html`
+- top-level pages such as `index.html`, `aboutme.html`, `now.html`, `projects.html`, `resume.html`, `archive.html`, `popular.html`, `tags.html`, `start-here.html`
+- localized page counterparts under `zh/`
+- `_data/`
 - `assets/`
 - `_includes/`
 - `_layouts/`

@@ -1,0 +1,80 @@
+{% assign current_lang = page.lang | default: 'en' %}
+{% assign t = site.data.site-text[current_lang] | default: site.data.site-text.en %}
+{% if current_lang == 'zh' %}
+  {% assign featured_post_titles = "从这里开始，成为一个 BDD 人||学会做好 Code Review||为 GitHub 认证配置 SSH Keys||我现在真正推荐的 Codex Skills" | split: "||" %}
+  {% assign featured_project_titles = "数据结构与算法||叶旭航个人网站||ConvoCorner" | split: "||" %}
+{% else %}
+  {% assign featured_post_titles = "Start from Here & To Be a BDD||Learn to Perform a good Code Review||Setting Up SSH Keys for GitHub Authentication||The Codex Skills I Actually Recommend Right Now" | split: "||" %}
+  {% assign featured_project_titles = "DataStructure Algorithm||Xuhang Ye Website||ConvoCorner" | split: "||" %}
+{% endif %}
+
+<div class="start-here-shell">
+  <section class="start-here-intro">
+    <div class="start-here-intro-copy">
+      <p class="start-here-eyebrow">{{ t.featured_page.route_label }}</p>
+      <p class="start-here-lead">{{ t.featured_page.intro }}</p>
+    </div>
+    <div class="start-here-stats">
+      <div class="start-here-stat-card">{{ t.featured_page.stat_posts }}</div>
+      <div class="start-here-stat-card">{{ t.featured_page.stat_projects }}</div>
+    </div>
+  </section>
+
+  <section class="start-here-section">
+    <div class="start-here-section-head">
+      <h2>{{ t.featured_page.posts_heading }}</h2>
+      <p>{{ t.featured_page.posts_description }}</p>
+    </div>
+    <div class="start-here-post-grid">
+      {% for wanted_title in featured_post_titles %}
+        {% for post in site.posts %}
+          {% if post.lang == current_lang and post.title == wanted_title %}
+            <article class="start-here-card start-here-post-card">
+              <p class="start-here-badge">{{ t.featured_page.post_badge }}</p>
+              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+              {% if post.subtitle %}
+                <p class="start-here-subtitle">{{ post.subtitle }}</p>
+              {% endif %}
+              <p class="start-here-meta">
+                {% if current_lang == 'zh' %}
+                  {{ post.date | date: "%Y年%-m月%-d日" }}
+                {% else %}
+                  {{ post.date | date: "%B %-d, %Y" }}
+                {% endif %}
+              </p>
+              <p class="start-here-excerpt">{{ post.excerpt | strip_html | truncatewords: 34 }}</p>
+              <a class="start-here-cta" href="{{ post.url | relative_url }}">{{ t.featured_page.posts_cta }}</a>
+            </article>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="start-here-section">
+    <div class="start-here-section-head">
+      <h2>{{ t.featured_page.projects_heading }}</h2>
+      <p>{{ t.featured_page.projects_description }}</p>
+    </div>
+    <div class="start-here-project-grid">
+      {% for wanted_title in featured_project_titles %}
+        {% for project in site.data.projects %}
+          {% if project.title[current_lang] == wanted_title %}
+            <article class="start-here-card start-here-project-card">
+              <p class="start-here-badge">{{ t.featured_page.project_badge }}</p>
+              <div class="start-here-project-head">
+                <img src="{{ project.logo | relative_url }}" alt="{{ project.alt }}">
+                <div>
+                  <h3><a href="{{ project.link }}">{{ project.title[current_lang] }}</a></h3>
+                  <p class="start-here-meta">{{ project.time }}</p>
+                </div>
+              </div>
+              <p class="start-here-excerpt">{{ project.description[current_lang] }}</p>
+              <a class="start-here-cta" href="{{ project.link }}">{{ t.featured_page.projects_cta }}</a>
+            </article>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </section>
+</div>

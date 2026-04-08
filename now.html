@@ -1,0 +1,110 @@
+---
+layout: page
+lang: en
+language: en
+translation_url: /zh/now/
+title: Now
+subtitle: What I am learning, building, and paying attention to right now
+permalink: /now/
+full-width: true
+css: "/assets/css/now.css"
+---
+
+{% assign current_lang = page.lang | default: 'en' %}
+{% assign t = site.data.site-text[current_lang] | default: site.data.site-text.en %}
+
+<div class="now-shell">
+  <section class="now-masthead">
+    <div class="now-spotlight">
+      <p class="now-kicker">{{ t.now_page.updated_label }}</p>
+      <h2 class="now-spotlight-title">Embodied AI, reinforcement learning, and agent-native workflows</h2>
+      <p class="now-intro">{{ t.now_page.intro }}</p>
+      <div class="now-chip-row">
+        <span class="now-chip">Reinforcement Learning</span>
+        <span class="now-chip">Dexterous Manipulation</span>
+        <span class="now-chip">Embodied Intelligence</span>
+        <span class="now-chip">AI Agent Coding</span>
+      </div>
+    </div>
+
+    <aside class="now-status-board">
+      <div class="now-status-item">
+        <span>Learning</span>
+        <strong>Reinforcement Learning</strong>
+      </div>
+      <div class="now-status-item">
+        <span>Building</span>
+        <strong>In-hand object rotation</strong>
+      </div>
+      <div class="now-status-item">
+        <span>Writing</span>
+        <strong>Embodied intelligence notes</strong>
+      </div>
+      <div class="now-status-item">
+        <span>Watching</span>
+        <strong>Embodied AI and AI agent coding</strong>
+      </div>
+    </aside>
+  </section>
+
+  <section class="now-flow">
+    <article class="now-card now-card-featured">
+      <div class="now-card-head">
+        <span class="now-card-number">01</span>
+        <h2>{{ t.now_page.learning_title }}</h2>
+      </div>
+      <p>{{ t.now_page.learning_body }}</p>
+    </article>
+    <article class="now-card">
+      <div class="now-card-head">
+        <span class="now-card-number">02</span>
+        <h2>{{ t.now_page.building_title }}</h2>
+      </div>
+      <p>{{ t.now_page.building_body }}</p>
+    </article>
+    <article class="now-card">
+      <div class="now-card-head">
+        <span class="now-card-number">03</span>
+        <h2>{{ t.now_page.writing_title }}</h2>
+      </div>
+      <p>{{ t.now_page.writing_body }}</p>
+    </article>
+    <article class="now-card">
+      <div class="now-card-head">
+        <span class="now-card-number">04</span>
+        <h2>{{ t.now_page.tracking_title }}</h2>
+      </div>
+      <p>{{ t.now_page.tracking_body }}</p>
+    </article>
+  </section>
+
+  <section class="now-roadmap">
+    <div class="now-roadmap-copy">
+      <p class="now-kicker">{{ t.now_page.next_title }}</p>
+      <h2>Build the missing foundation, then turn it into real capability.</h2>
+      <p>{{ t.now_page.next_body }}</p>
+    </div>
+    <div class="now-roadmap-grid">
+      <article class="now-roadmap-card">
+        <span>01</span>
+        <strong>Deep learning theory</strong>
+      </article>
+      <article class="now-roadmap-card">
+        <span>02</span>
+        <strong>Control and feedback systems</strong>
+      </article>
+      <article class="now-roadmap-card">
+        <span>03</span>
+        <strong>Robot kinematics and dynamics</strong>
+      </article>
+      <article class="now-roadmap-card">
+        <span>04</span>
+        <strong>Complete software and hardware stack</strong>
+      </article>
+      <article class="now-roadmap-card">
+        <span>05</span>
+        <strong>Agent-assisted learning and research workflow</strong>
+      </article>
+    </div>
+  </section>
+</div>

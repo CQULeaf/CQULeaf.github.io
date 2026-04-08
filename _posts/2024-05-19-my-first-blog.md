@@ -7,6 +7,9 @@ title: Start from Here & To Be a BDD
 subtitle: Write, write and write
 tags: [Ideas and Insights]
 readtime: true
+share-title: Start from Here and Begin My Blog-Driven Development Journey
+share-description: Why I started writing seriously, what Blog-Driven Development means to me, and how this personal site became part of that journey.
+share-img: /assets/img/Avatar.jpg
 ---
 
 It is the early morning of May 19, 2024, and the first personal blog will be written at this time, I think I will remember this moment forever.

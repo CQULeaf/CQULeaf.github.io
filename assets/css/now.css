@@ -1,0 +1,297 @@
+.now-shell {
+  --now-line: rgba(27, 41, 56, 0.12);
+  --now-surface: rgba(255, 255, 255, 0.92);
+  --now-text: #1b2733;
+  --now-muted: #697684;
+  --now-accent: #c15d34;
+  --now-accent-soft: rgba(193, 93, 52, 0.12);
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 3rem) 1.25rem;
+  position: relative;
+}
+
+.now-shell::before {
+  content: "";
+  position: absolute;
+  inset: -1rem 0 auto;
+  height: 240px;
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at top left, rgba(47, 124, 246, 0.11), rgba(47, 124, 246, 0)),
+    radial-gradient(circle at top right, rgba(193, 93, 52, 0.14), rgba(193, 93, 52, 0)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.now-masthead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
+  gap: 1.2rem;
+  align-items: stretch;
+  margin-bottom: 1.4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.now-spotlight,
+.now-status-item,
+.now-card,
+.now-roadmap-copy,
+.now-roadmap-card {
+  border: 1px solid var(--now-line);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(250, 247, 243, 0.98)),
+    var(--now-surface);
+  box-shadow: 0 18px 48px rgba(19, 30, 40, 0.07);
+}
+
+.now-spotlight {
+  padding: 1.9rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.now-kicker {
+  margin: 0 0 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.73rem;
+  font-weight: 700;
+  color: var(--now-accent);
+}
+
+.now-spotlight-title {
+  margin: 0;
+  max-width: 12ch;
+  font-size: clamp(2.3rem, 4.4vw, 4rem);
+  line-height: 0.98;
+  color: var(--now-text);
+}
+
+.now-intro {
+  margin: 1rem 0 0;
+  color: var(--now-text);
+  line-height: 1.8;
+  font-size: 1.04rem;
+  max-width: 44rem;
+}
+
+.now-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.now-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(27, 41, 56, 0.08);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--now-text);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.now-status-board {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.now-status-item {
+  padding: 1.05rem 1.15rem;
+  min-height: 104px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.now-status-item span {
+  display: block;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.76rem;
+  color: var(--now-muted);
+  font-weight: 700;
+}
+
+.now-status-item strong {
+  color: var(--now-text);
+  font-size: 1.18rem;
+  line-height: 1.28;
+  font-weight: 800;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.now-flow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.now-card {
+  padding: 1.5rem;
+  min-height: 100%;
+}
+
+.now-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.85rem;
+}
+
+.now-card-number {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--now-accent-soft);
+  color: var(--now-accent);
+  font-size: 0.9rem;
+  font-weight: 800;
+  flex: 0 0 auto;
+}
+
+.now-card h2 {
+  margin: 0;
+  color: var(--now-text);
+  font-size: 1.42rem;
+  line-height: 1.2;
+}
+
+.now-card p {
+  margin: 0;
+  color: var(--now-text);
+  line-height: 1.8;
+}
+
+.now-card-featured {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(250, 247, 243, 0.98)),
+    var(--now-surface);
+}
+
+.now-roadmap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.95fr);
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.now-roadmap-copy {
+  padding: 1.85rem 1.95rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(250, 247, 243, 0.98)),
+    var(--now-surface);
+}
+
+.now-roadmap-copy h2 {
+  margin: 0;
+  max-width: 18ch;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.05;
+  color: var(--now-text);
+}
+
+.now-roadmap-copy p:last-child {
+  margin: 1rem 0 0;
+  color: var(--now-text);
+  line-height: 1.85;
+}
+
+.now-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.now-roadmap-card {
+  padding: 1rem 1.05rem;
+}
+
+.now-roadmap-card span {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--now-accent);
+  font-weight: 800;
+  font-size: 0.86rem;
+}
+
+.now-roadmap-card strong {
+  color: var(--now-text);
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+@media (max-width: 991px) {
+  .now-masthead,
+  .now-flow,
+  .now-roadmap,
+  .now-roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .now-shell {
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
+  }
+
+  .now-spotlight,
+  .now-status-item,
+  .now-roadmap-copy,
+  .now-roadmap-card,
+  .now-card {
+    border-radius: 18px;
+    padding: 1.1rem;
+  }
+
+  .now-spotlight-title {
+    max-width: none;
+  }
+}
+
+[data-theme="dark"] .now-shell {
+  --now-line: rgba(214, 165, 120, 0.18);
+  --now-text: #f3eee7;
+  --now-muted: #b8aea4;
+  --now-accent: #df7c47;
+  --now-accent-soft: rgba(223, 124, 71, 0.12);
+}
+
+[data-theme="dark"] .now-shell::before {
+  background:
+    radial-gradient(circle at top left, rgba(121, 174, 252, 0.13), rgba(121, 174, 252, 0)),
+    radial-gradient(circle at top right, rgba(223, 124, 71, 0.16), rgba(223, 124, 71, 0)),
+    linear-gradient(180deg, rgba(24, 24, 24, 0.5), rgba(24, 24, 24, 0));
+}
+
+[data-theme="dark"] .now-spotlight,
+[data-theme="dark"] .now-status-item,
+[data-theme="dark"] .now-card,
+[data-theme="dark"] .now-roadmap-copy,
+[data-theme="dark"] .now-roadmap-card {
+  background:
+    linear-gradient(180deg, rgba(24, 24, 24, 0.96), rgba(33, 28, 25, 0.98)),
+    rgba(24, 24, 24, 0.96);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .now-chip {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(214, 165, 120, 0.14);
+}

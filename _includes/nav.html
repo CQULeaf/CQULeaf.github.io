@@ -7,11 +7,13 @@
 {% assign blog_path = '/' %}
 {% assign projects_path = '/projects/' %}
 {% assign about_path = '/aboutme/' %}
+{% assign now_path = '/now/' %}
 {% assign resume_path = '/resume/' %}
 {% if current_lang == 'zh' %}
   {% assign blog_path = '/zh/' %}
   {% assign projects_path = '/zh/projects/' %}
   {% assign about_path = '/zh/aboutme/' %}
+  {% assign now_path = '/zh/now/' %}
   {% assign resume_path = '/zh/resume/' %}
 {% endif %}
 {% assign language_target = page.translation_url %}
@@ -49,6 +51,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ about_path | relative_url }}">{{ t.nav.about }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ now_path | relative_url }}">{{ t.nav.now }}</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ resume_path | relative_url }}">{{ t.nav.resume }}</a>

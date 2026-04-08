@@ -55,7 +55,7 @@ round-avatar: true
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
   email: "cquleaf@yexuhang.com"
-  # rss: true  # remove this line if you don't want to show an RSS link at the bottom
+  rss: true
   github: CQULeaf
   google-scholar: xdeVKGcAAAAJ
   stackoverflow: "20622708/xuhang-ye"
@@ -83,7 +83,7 @@ social-network-links:
 
 # If you want your website to generate an RSS feed, provide a description
 # The URL for the feed will be https://<your_website>/feed.xml
-# rss-description: This website is a virtual proof that I'm awesome
+rss-description: A bilingual personal website about blogs, projects and my growth.
 
 ###########################
 # --- General options --- #
@@ -160,6 +160,10 @@ site-css:
   - "/assets/css/codeblocks.css"
   - "/assets/css/toc.css"
 
+# Optional include files to render in the footer across the whole site
+footer-extra:
+  - "footer-connect.html"
+
 # If you have common JavaScript files that should be included in every page, list them here
 #site-js:
 #  - "/assets/js/custom-script.js"
@@ -233,15 +237,16 @@ gtag: "G-HRMKNG84ML"
 # (3) Fill in *all* the parameters below 
 # See more details about giscus and each of the following parameters at https://giscus.app
 #giscus:
-#  hostname: giscus.app # Replace with your giscus instance's hostname if self-hosting
-#  repository: # GitHub username/repository eg. "daattali/beautiful-jekyll"
-#  repository-id: # ID of your repository, retrieve this info from https://giscus.app
-#  category: Announcements # Category name of your GitHub Discussion posts
-#  category-id: # ID of your category, retrieve this info from https://giscus.app
-#  mapping: pathname
-#  reactions-enabled: 1
-#  emit-metadata: 0
-#  theme: light
+giscus:
+  hostname: giscus.app
+  repository: CQULeaf/CQULeaf.github.io
+  repository-id: R_kgDOLeUegg
+  category: Announcements
+  category-id: DIC_kwDOLeUegs4C6Xb4
+  mapping: pathname
+  reactions-enabled: 1
+  emit-metadata: 0
+  theme: preferred_color_scheme
 
 ################
 # --- Misc --- #

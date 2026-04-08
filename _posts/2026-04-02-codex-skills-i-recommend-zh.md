@@ -8,6 +8,9 @@ title: 我现在真正推荐的 Codex Skills
 subtitle: 不是技能大全，而是一份我在真实使用后留下来的清单
 tags: [Ideas and Insights, Software Development]
 readtime: true
+share-title: 我现在真正推荐的 Codex Skills
+share-description: 一份基于真实使用经验留下来的 Codex skills 清单，重点放在调研、写作、验证和工程协作这些高频场景。
+share-img: /assets/img/project-logos/yxh-website.png
 ---
 
 有一段时间，我其实没有太把 Codex 里的 skills 当回事。

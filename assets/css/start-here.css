@@ -1,0 +1,224 @@
+.start-here-shell {
+  --sh-bg: rgba(255, 255, 255, 0.8);
+  --sh-surface: rgba(255, 255, 255, 0.92);
+  --sh-line: rgba(25, 40, 55, 0.1);
+  --sh-text: #1d2630;
+  --sh-muted: #5e6773;
+  --sh-accent: #0d6efd;
+  --sh-warm: #c26a2d;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1.1rem, 3vw, 2.75rem) 1rem;
+}
+
+.start-here-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
+  gap: 1.1rem;
+  margin: 0 0 2.75rem;
+}
+
+.start-here-intro-copy,
+.start-here-stat-card,
+.start-here-card {
+  border: 1px solid var(--sh-line);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(250, 248, 245, 0.96)),
+    var(--sh-surface);
+  box-shadow: 0 18px 40px rgba(21, 31, 42, 0.06);
+}
+
+.start-here-intro-copy {
+  padding: 1.65rem 1.75rem;
+}
+
+.start-here-eyebrow,
+.start-here-badge {
+  margin: 0 0 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--sh-warm);
+}
+
+.start-here-lead {
+  margin: 0;
+  font-size: clamp(1.08rem, 1.6vw, 1.3rem);
+  line-height: 1.8;
+  color: var(--sh-text);
+  max-width: 42rem;
+}
+
+.start-here-stats {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.start-here-stat-card {
+  padding: 1rem 1.1rem;
+  color: var(--sh-muted);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  min-height: 88px;
+}
+
+.start-here-section {
+  margin-top: 3rem;
+}
+
+.start-here-section-head {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.35fr);
+  gap: 1.2rem;
+  align-items: end;
+  margin-bottom: 1.15rem;
+}
+
+.start-here-section-head h2 {
+  margin: 0;
+  font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+  line-height: 1.05;
+  color: var(--sh-text);
+}
+
+.start-here-section-head p {
+  margin: 0;
+  color: var(--sh-muted);
+  line-height: 1.75;
+  max-width: 44rem;
+}
+
+.start-here-post-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.start-here-project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.start-here-card {
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.start-here-card h3 {
+  margin: 0;
+  font-size: clamp(1.25rem, 1.7vw, 1.55rem);
+  line-height: 1.15;
+}
+
+.start-here-card h3 a {
+  color: var(--sh-accent);
+  text-decoration: none;
+}
+
+.start-here-card h3 a:hover,
+.start-here-card h3 a:focus {
+  text-decoration: underline;
+}
+
+.start-here-subtitle {
+  margin: 0.8rem 0 0;
+  color: var(--sh-text);
+  opacity: 0.8;
+  line-height: 1.55;
+}
+
+.start-here-meta {
+  margin: 0.8rem 0 0;
+  color: var(--sh-muted);
+  font-size: 0.98rem;
+}
+
+.start-here-excerpt {
+  margin: 1rem 0 0;
+  color: var(--sh-text);
+  line-height: 1.75;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+
+.start-here-cta {
+  margin-top: auto;
+  padding-top: 1rem;
+  font-weight: 700;
+  color: var(--sh-accent);
+  text-decoration: none;
+}
+
+.start-here-cta:hover,
+.start-here-cta:focus {
+  text-decoration: underline;
+}
+
+.start-here-project-head {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.start-here-project-head img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 1199px) {
+  .start-here-project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .start-here-intro,
+  .start-here-section-head,
+  .start-here-post-grid,
+  .start-here-project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .start-here-shell {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .start-here-intro-copy,
+  .start-here-card {
+    border-radius: 18px;
+    padding: 1.15rem;
+  }
+}
+
+[data-theme="dark"] .start-here-shell {
+  --sh-bg: rgba(22, 24, 26, 0.92);
+  --sh-surface: rgba(24, 24, 24, 0.96);
+  --sh-line: rgba(210, 156, 108, 0.18);
+  --sh-text: #f1ece4;
+  --sh-muted: #b6ada3;
+  --sh-accent: #69adff;
+  --sh-warm: #db7d47;
+}
+
+[data-theme="dark"] .start-here-intro-copy,
+[data-theme="dark"] .start-here-stat-card,
+[data-theme="dark"] .start-here-card {
+  background:
+    linear-gradient(180deg, rgba(25, 24, 24, 0.92), rgba(31, 27, 24, 0.96)),
+    var(--sh-surface);
+  box-shadow: none;
+}

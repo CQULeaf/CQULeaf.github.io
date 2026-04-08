@@ -1,0 +1,110 @@
+---
+layout: page
+lang: zh
+language: zh-CN
+translation_url: /now/
+title: 近况
+subtitle: 我最近在学什么、做什么、关注什么
+permalink: /zh/now/
+full-width: true
+css: "/assets/css/now.css"
+---
+
+{% assign current_lang = page.lang | default: 'en' %}
+{% assign t = site.data.site-text[current_lang] | default: site.data.site-text.en %}
+
+<div class="now-shell">
+  <section class="now-masthead">
+    <div class="now-spotlight">
+      <p class="now-kicker">{{ t.now_page.updated_label }}</p>
+      <h2 class="now-spotlight-title">具身智能、强化学习，以及真正能进入工作流的 AI Agent</h2>
+      <p class="now-intro">{{ t.now_page.intro }}</p>
+      <div class="now-chip-row">
+        <span class="now-chip">强化学习</span>
+        <span class="now-chip">灵巧手操作</span>
+        <span class="now-chip">具身智能</span>
+        <span class="now-chip">AI Agent Coding</span>
+      </div>
+    </div>
+
+    <aside class="now-status-board">
+      <div class="now-status-item">
+        <span>最近在学</span>
+        <strong>强化学习</strong>
+      </div>
+      <div class="now-status-item">
+        <span>最近在做</span>
+        <strong>手内旋转物体任务</strong>
+      </div>
+      <div class="now-status-item">
+        <span>最近准备写</span>
+        <strong>具身智能相关内容</strong>
+      </div>
+      <div class="now-status-item">
+        <span>最近在关注</span>
+        <strong>具身智能与 AI Agent Coding</strong>
+      </div>
+    </aside>
+  </section>
+
+  <section class="now-flow">
+    <article class="now-card now-card-featured">
+      <div class="now-card-head">
+        <span class="now-card-number">01</span>
+        <h2>{{ t.now_page.learning_title }}</h2>
+      </div>
+      <p>{{ t.now_page.learning_body }}</p>
+    </article>
+    <article class="now-card">
+      <div class="now-card-head">
+        <span class="now-card-number">02</span>
+        <h2>{{ t.now_page.building_title }}</h2>
+      </div>
+      <p>{{ t.now_page.building_body }}</p>
+    </article>
+    <article class="now-card">
+      <div class="now-card-head">
+        <span class="now-card-number">03</span>
+        <h2>{{ t.now_page.writing_title }}</h2>
+      </div>
+      <p>{{ t.now_page.writing_body }}</p>
+    </article>
+    <article class="now-card">
+      <div class="now-card-head">
+        <span class="now-card-number">04</span>
+        <h2>{{ t.now_page.tracking_title }}</h2>
+      </div>
+      <p>{{ t.now_page.tracking_body }}</p>
+    </article>
+  </section>
+
+  <section class="now-roadmap">
+    <div class="now-roadmap-copy">
+      <p class="now-kicker">{{ t.now_page.next_title }}</p>
+      <h2>先把缺的基础补齐，再把它真正变成一套可用能力。</h2>
+      <p>{{ t.now_page.next_body }}</p>
+    </div>
+    <div class="now-roadmap-grid">
+      <article class="now-roadmap-card">
+        <span>01</span>
+        <strong>深度学习理论</strong>
+      </article>
+      <article class="now-roadmap-card">
+        <span>02</span>
+        <strong>控制理论与反馈系统</strong>
+      </article>
+      <article class="now-roadmap-card">
+        <span>03</span>
+        <strong>机器人运动学与动力学</strong>
+      </article>
+      <article class="now-roadmap-card">
+        <span>04</span>
+        <strong>完整软硬件框架</strong>
+      </article>
+      <article class="now-roadmap-card">
+        <span>05</span>
+        <strong>Agent 驱动的学习与科研工作流</strong>
+      </article>
+    </div>
+  </section>
+</div>

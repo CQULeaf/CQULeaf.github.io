@@ -8,6 +8,9 @@ title: 学会做好 Code Review
 subtitle: 让软件开发流程更高效
 tags: [Software Development]
 readtime: true
+share-title: 学会做好 Code Review：目标、流程与工具
+share-description: 从 code review 的核心目标讲起，梳理常见流程，并结合 GitHub 说明工具如何真正提升 review 效率。
+share-img: /assets/img/project-logos/yxh-website.png
 ---
 
 Code review 是软件开发流程中的重要环节，它通过**检查源代码**来帮助我们在早期发现 bug。通常，一次 code review 会发生在代码合并进主代码库之前。

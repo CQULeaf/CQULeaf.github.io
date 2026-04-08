@@ -7,6 +7,9 @@ title: Learn to Perform a good Code Review
 subtitle: Make the software development process more efficient
 tags: [Software Development]
 readtime: true
+share-title: Learn to Perform Better Code Reviews
+share-description: A practical introduction to code review goals, common workflows, and why tools like GitHub can make the process more effective.
+share-img: /assets/img/project-logos/yxh-website.png
 ---
 
 Code review is a part of the software development process which involves ***testing the source code*** to identify bugs at an early stage. A code review process is typically conducted before merging with the codebase.
