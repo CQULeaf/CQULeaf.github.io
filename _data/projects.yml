@@ -1,3 +1,29 @@
+- time: "2026.2 - 2026.5"
+  title:
+    en: "LEAP Hand In-Hand Rotation"
+    zh: "LEAP Hand 手内旋转"
+  description:
+    en: "Proprioceptive LEAP Hand cylinder rotation with two-stage skill-prior adaptation, OOD refinement, and real hardware demos."
+    zh: "基于本体感觉与两阶段 skill prior 适应的 LEAP Hand 圆柱体手内旋转，包含 OOD 改进与实机演示。"
+  link: "/projects/leap-hand-inhand-rotation/"
+  link_zh: "/zh/projects/leap-hand-inhand-rotation/"
+  logo: "/assets/img/project-logos/leap-hand-rotation.png"
+  alt: "LEAP Hand In-Hand Rotation"
+  tags: ["Python", "Isaac Lab", "Reinforcement Learning", "LEAP Hand", "Sim-to-Real", "Robotics"]
+
+- time: "2025.11 - 2026.1"
+  title:
+    en: "LEAP Hand In-Hand Reorientation"
+    zh: "LEAP Hand 方块重定向"
+  description:
+    en: "Video-first project page for simulation and real-world LEAP Hand in-hand cube reorientation demos."
+    zh: "展示 LEAP Hand 手内方块重定向仿真与实机视频成果的项目页。"
+  link: "/projects/leap-hand-inhand-reorientation/"
+  link_zh: "/zh/projects/leap-hand-inhand-reorientation/"
+  logo: "/assets/img/project-logos/leap-hand-reorientation.png"
+  alt: "LEAP Hand In-Hand Reorientation"
+  tags: ["Python", "Isaac Lab", "Reinforcement Learning", "LEAP Hand", "Reorientation", "Robotics"]
+
 - time: "2025.02 - 2025.06"
   title:
     en: "Compilers"

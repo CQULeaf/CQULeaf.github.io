@@ -1,0 +1,112 @@
+leap_hand_rotation:
+  slug: leap-hand-inhand-rotation
+  repo: https://github.com/CQULeaf/leap-hand-inhand-rotation
+  paper: https://github.com/CQULeaf/leap-hand-inhand-rotation/blob/main/paper/main.pdf
+  en:
+    title: LEAP Hand In-Hand Rotation
+    authors: Xuhang Ye
+    venue: LEAP Hand robot learning project
+    abstract: "A proprioceptive in-hand cylinder rotation project on the low-cost LEAP Hand. The system adapts the HORA/RMA two-stage idea into an 8D skill-prior representation: a privileged teacher first learns stable rotation in Isaac Lab, then a deployable policy recovers the same prior from proprioceptive history only. A refined second stage adds teacher-deployment action consistency and wider center-of-mass coverage, improving OOD success from 0.8750 to 0.9141 while keeping ID success at 1.0000. The same Deploy-Refined checkpoint transfers to real hardware, reaching 10/10 trials on standard and smaller cylinders, 8/10 on a slender bottle, and exposing ribbed bottles as the current contact-geometry boundary."
+    main_video_title: Real LEAP Hand standard cylinder demo
+  zh:
+    title: LEAP Hand 手内旋转
+    title_lines:
+      - LEAP Hand
+      - 手内旋转
+    authors: 叶旭航
+    venue: LEAP Hand 机器人学习项目
+    abstract: "面向低成本 LEAP Hand 的本体感觉手内圆柱旋转项目。系统借鉴 HORA/RMA 的两阶段适应思路，将训练期特权信息压缩为 8 维 skill prior：先在 Isaac Lab 中训练具备稳定旋转能力的教师策略，再让可部署策略仅依赖本体感觉历史恢复同一先验。第二阶段通过教师-部署动作一致性约束和更宽的质心偏移覆盖缓解 OOD 退化，将常规圆柱体 OOD 成功率从 0.8750 提升到 0.9141，同时保持 ID 成功率 1.0000。同一个 Deploy-Refined checkpoint 可迁移到真实 LEAP Hand，在标准圆柱体和尺寸外圆柱体上均达到 10/10，细高饮料瓶达到 8/10，带棱角瓶则体现出当前接触几何泛化的边界。"
+    main_video_title: 真实 LEAP Hand 标准圆柱体演示
+  hero_video: real_standard_cylinder_success_web.mp4
+  sections:
+    - key: simulation-skill
+      title:
+        en: Simulation skill learning
+        zh: 仿真技能学习
+      videos:
+        - file: sim_teacher_success.mp4
+          label:
+            en: Teacher policy learns stable continuous cylinder rotation with privileged object information.
+            zh: 教师策略利用特权对象信息学习稳定的圆柱体连续旋转。
+        - file: sim_deploy_base_success.mp4
+          label:
+            en: Deploy-Base recovers the rotation skill from proprioceptive history only.
+            zh: Deploy-Base 仅依赖本体感觉历史恢复旋转技能。
+    - key: ood-boundary
+      title:
+        en: OOD adaptation and boundary
+        zh: OOD 适应与边界
+      videos:
+        - file: sim_deploy_base_high_com_failure.mp4
+          label:
+            en: "Boundary case: Deploy-Base fails under a larger center-of-mass offset."
+            zh: 边界案例：Deploy-Base 在较大质心偏移条件下失稳失败。
+        - file: sim_deploy_refined_high_com_success.mp4
+          label:
+            en: Deploy-Refined improves the same high-risk setting with action consistency and wider CoM coverage.
+            zh: Deploy-Refined 通过动作一致性和更宽质心覆盖改善同类高风险样本。
+    - key: hardware
+      title:
+        en: Real hardware deployment
+        zh: 真实硬件部署
+      videos:
+        - file: real_small_cylinder_success_web.mp4
+          label:
+            en: Smaller cylinder, 10/10 real trials, about one net rotation in 20 s.
+            zh: 尺寸外小圆柱体，实机 10/10，20 秒内约完成一圈净旋转。
+        - file: real_slender_bottle_success_web.mp4
+          label:
+            en: Slender near-cylinder bottle, 8/10 real trials, showing limited object transfer.
+            zh: 细高近圆柱饮料瓶，实机 8/10，展示有限的真实物体迁移能力。
+    - key: hardware-limitation
+      title:
+        en: Real hardware limitation
+        zh: 真实硬件局限
+      videos:
+        - file: real_ribbed_bottle_failure_web.mp4
+          label:
+            en: "Limitation: ribbed bottle contact edges interrupt sustained rotation."
+            zh: 局限案例：带棱角瓶的接触棱边会中断持续旋转。
+
+leap_hand_reorientation:
+  slug: leap-hand-inhand-reorientation
+  repo: https://github.com/CQULeaf/leap-hand-inhand-reorientation
+  en:
+    title: LEAP Hand In-Hand Reorientation
+    authors: Xuhang Ye
+    venue: LEAP Hand robot learning project
+    abstract: Single-axis in-hand cube reorientation on LEAP Hand using Isaac Lab, rl_games PPO, proprioceptive observations, domain randomization, and real hardware deployment paths.
+    main_video_title: Main reorientation demo
+  zh:
+    title: LEAP Hand 方块重定向
+    title_lines:
+      - LEAP Hand
+      - 方块重定向
+    authors: 叶旭航
+    venue: LEAP Hand 机器人学习项目
+    abstract: 基于 Isaac Lab 与 rl_games PPO 的 LEAP Hand 单轴手内方块重定向项目，依赖本体感觉观测、域随机化，并提供真实硬件部署路径。
+    main_video_title: 方块重定向主演示
+  hero_video: hero.mp4
+  sections:
+    - key: simulation
+      title:
+        en: Simulation demonstrations
+        zh: 仿真演示
+      videos:
+        - file: sim_reorientation.mp4
+          label:
+            en: Cube reorientation policy in simulation
+            zh: 方块重定向仿真策略
+    - key: hardware
+      title:
+        en: Real hardware demonstrations
+        zh: 实机演示
+      videos:
+        - file: real_reorientation_sdk.mp4
+          label:
+            en: Dynamixel SDK deployment
+            zh: Dynamixel SDK 实机部署
+        - file: real_reorientation_ros2.mp4
+          label:
+            en: ROS2 deployment path
+            zh: ROS2 部署路径
