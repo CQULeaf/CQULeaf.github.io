@@ -9,6 +9,9 @@ cd "$ROOT_DIR"
 echo "Removing generated site output..."
 rm -rf _site
 
+echo "Removing Jekyll caches..."
+rm -rf .jekyll-cache .sass-cache .jekyll-metadata
+
 echo "Removing stale failed Ruby bundle from system Ruby attempt..."
 rm -rf vendor/bundle/ruby/3.0.0
 

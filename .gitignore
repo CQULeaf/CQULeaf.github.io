@@ -1,5 +1,7 @@
 # project
 _site
+.jekyll-cache/
+.jekyll-metadata
 .sass-cache
 .vagrant
 .bundle/

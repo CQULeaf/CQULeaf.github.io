@@ -294,6 +294,7 @@ defaults:
 
 # Exclude these files from production site
 exclude:
+  - AGENTS.md
   - CHANGELOG.md
   - CNAME
   - Gemfile
@@ -306,6 +307,7 @@ exclude:
   - .gem
   - .gem32
   - docs/
+  - scripts/
 
 plugins:
   - jekyll-paginate

@@ -55,4 +55,4 @@ Cleanup command:
 
 ## Repository cleanup
 
-Theme upstream documents and collaboration template files that are not needed for day-to-day site editing were archived under `docs/archive/upstream-theme/` and `.github/archive/`.
+Theme upstream documents and collaboration template files that are not needed for day-to-day site editing are archived under `docs/archive/upstream-theme/`.
