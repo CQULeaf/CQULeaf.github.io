@@ -67,7 +67,7 @@
           {% assign item_video_type = 'video/webm' %}
           {% endif %}
           <figure class="robot-video-card robot-video-card-featured">
-            <video controls playsinline preload="metadata">
+            <video controls playsinline{% if item.muted %} muted{% endif %} preload="metadata">
               <source src="{{ asset_root }}/videos/{{ item.file }}" type="{{ item_video_type }}">
             </video>
             <div class="robot-video-pending">
