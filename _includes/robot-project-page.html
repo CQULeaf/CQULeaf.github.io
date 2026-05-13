@@ -35,18 +35,56 @@
   </header>
 
   <main class="robot-project-container">
-    <section class="robot-project-hero-video" id="videos" aria-labelledby="main-video-title">
-      <h2 id="main-video-title">{{ copy.main_video_title }}</h2>
-      <div class="robot-video-card robot-video-card-main">
-        <video controls playsinline preload="metadata">
-          <source src="{{ asset_root }}/videos/{{ project.hero_video }}" type="video/mp4">
-        </video>
-        <div class="robot-video-pending">
-          <span>{% if lang == 'zh' %}等待视频{% else %}Video pending{% endif %}</span>
-          <code>{{ asset_root }}/videos/{{ project.hero_video }}</code>
+    {% if project.hero_video %}
+      <section class="robot-project-hero-video" id="videos" aria-labelledby="main-video-title">
+        <h2 id="main-video-title">{{ copy.main_video_title }}</h2>
+        <div class="robot-video-card robot-video-card-main">
+          {% assign hero_video_type = 'video/mp4' %}
+          {% if project.hero_video contains '.webm' %}
+          {% assign hero_video_type = 'video/webm' %}
+          {% endif %}
+          <video controls playsinline preload="metadata">
+            <source src="{{ asset_root }}/videos/{{ project.hero_video }}" type="{{ hero_video_type }}">
+          </video>
+          <div class="robot-video-pending">
+            <span>{% if lang == 'zh' %}等待视频{% else %}Video pending{% endif %}</span>
+            <code>{{ asset_root }}/videos/{{ project.hero_video }}</code>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    {% elsif project.featured_videos %}
+      <section class="robot-project-hero-video robot-project-demo-overview" id="videos" aria-labelledby="main-video-title">
+        <h2 id="main-video-title">{{ copy.main_video_title }}</h2>
+        {% if copy.video_intro %}
+        <p class="robot-project-video-intro">{{ copy.video_intro }}</p>
+        {% endif %}
+        <div class="robot-video-grid robot-video-grid-featured">
+          {% for item in project.featured_videos %}
+          {% assign item_label = item.label[lang] | default: item.label.en %}
+          {% assign item_kicker = item.kicker[lang] | default: item.kicker.en %}
+          {% assign item_video_type = 'video/mp4' %}
+          {% if item.file contains '.webm' %}
+          {% assign item_video_type = 'video/webm' %}
+          {% endif %}
+          <figure class="robot-video-card robot-video-card-featured">
+            <video controls playsinline preload="metadata">
+              <source src="{{ asset_root }}/videos/{{ item.file }}" type="{{ item_video_type }}">
+            </video>
+            <div class="robot-video-pending">
+              <span>{% if lang == 'zh' %}等待视频{% else %}Video pending{% endif %}</span>
+              <code>{{ asset_root }}/videos/{{ item.file }}</code>
+            </div>
+            <figcaption>
+              {% if item_kicker %}
+              <span class="robot-video-kicker">{{ item_kicker }}</span>
+              {% endif %}
+              {{ item_label }}
+            </figcaption>
+          </figure>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
 
     {% if copy.abstract %}
     <section class="robot-project-abstract" aria-label="Project abstract">
@@ -54,27 +92,33 @@
     </section>
     {% endif %}
 
-    {% for section in project.sections %}
-    {% assign section_title = section.title[lang] | default: section.title.en %}
-    <section class="robot-video-section" aria-labelledby="{{ project.slug }}-{{ section.key }}">
-      <hr>
-      <h2 id="{{ project.slug }}-{{ section.key }}">{{ section_title }}</h2>
-      <div class="robot-video-grid">
-        {% for item in section.videos %}
-        {% assign item_label = item.label[lang] | default: item.label.en %}
-        <figure class="robot-video-card">
-          <video controls playsinline muted loop preload="metadata">
-            <source src="{{ asset_root }}/videos/{{ item.file }}" type="video/mp4">
-          </video>
-          <div class="robot-video-pending">
-            <span>{% if lang == 'zh' %}等待视频{% else %}Video pending{% endif %}</span>
-            <code>{{ asset_root }}/videos/{{ item.file }}</code>
-          </div>
-          <figcaption>{{ item_label }}</figcaption>
-        </figure>
-        {% endfor %}
-      </div>
-    </section>
-    {% endfor %}
+    {% if project.sections %}
+      {% for section in project.sections %}
+      {% assign section_title = section.title[lang] | default: section.title.en %}
+      <section class="robot-video-section" aria-labelledby="{{ project.slug }}-{{ section.key }}">
+        <hr>
+        <h2 id="{{ project.slug }}-{{ section.key }}">{{ section_title }}</h2>
+        <div class="robot-video-grid">
+          {% for item in section.videos %}
+          {% assign item_label = item.label[lang] | default: item.label.en %}
+          {% assign item_video_type = 'video/mp4' %}
+          {% if item.file contains '.webm' %}
+          {% assign item_video_type = 'video/webm' %}
+          {% endif %}
+          <figure class="robot-video-card">
+            <video controls playsinline muted loop preload="metadata">
+              <source src="{{ asset_root }}/videos/{{ item.file }}" type="{{ item_video_type }}">
+            </video>
+            <div class="robot-video-pending">
+              <span>{% if lang == 'zh' %}等待视频{% else %}Video pending{% endif %}</span>
+              <code>{{ asset_root }}/videos/{{ item.file }}</code>
+            </div>
+            <figcaption>{{ item_label }}</figcaption>
+          </figure>
+          {% endfor %}
+        </div>
+      </section>
+      {% endfor %}
+    {% endif %}
   </main>
 </article>

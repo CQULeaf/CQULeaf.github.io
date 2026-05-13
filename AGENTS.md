@@ -48,6 +48,12 @@ Start a local preview server:
 ./scripts/dev.sh
 ```
 
+Build the site without serving:
+
+```bash
+./scripts/build.sh
+```
+
 Clean generated site output and stale failed bundle artifacts:
 
 ```bash
@@ -56,9 +62,10 @@ Clean generated site output and stale failed bundle artifacts:
 
 Current local workflow notes:
 
-- `scripts/dev.sh` expects the local Ruby installation at `/home/yxh/.rubies/ruby-3.2.4`
-- gems are installed into the repository-local bundle path
-- local environment artifacts include `.bundle/`, `.gem32/`, and `vendor/bundle/`
+- `scripts/dev.sh` and `scripts/build.sh` auto-detect Ruby from `RUBY_BIN`, `RUBY_DIR`, Linux local Ruby paths, `/mnt/c/Ruby34-x64/bin/ruby.exe`, then `ruby` on `PATH`
+- Linux Ruby runs use the repository-local bundle path by default
+- Windows Ruby runs use the installed Ruby environment by default; set `USE_REPO_BUNDLE=1` to force `.gem32` and `vendor/bundle`
+- local environment artifacts may include `.bundle/`, `.gem32/`, and `vendor/bundle/`
 
 ## 5. Edit Boundaries
 
@@ -100,6 +107,14 @@ Do not treat generated files or dependency directories as source content.
 - Reuse `scripts/dev.sh` and `scripts/clean.sh` for local workflow whenever possible.
 - If a change touches shared layout, configuration, or integrations, check its site-wide impact before editing.
 - If a task is mainly content-related, avoid unnecessary infrastructure or theme refactors.
+
+### Robot Project Page Rules
+
+- For LEAP Hand project pages, reuse the existing `leap-hand-inhand-rotation` presentation pattern unless the user explicitly asks for a different interaction model.
+- Keep robot project media as normal `<video>` playback entries under `assets/projects/<slug>/videos/`; do not introduce image/GIF/WebP fallbacks or alternate media structures unless requested.
+- When a related project has fewer demos than `rotation`, adapt the data shape minimally, such as a compact `featured_videos` list, while preserving the same visual and playback language.
+- Avoid putting process explanations into the public project page. The page should read as a finished standalone project, not as an explanation of why certain assets are missing.
+- Verify the page builds and the media paths resolve. If deeper codec/browser playback debugging starts to expand, pause and report the concrete finding instead of spinning into multiple speculative transcode attempts.
 
 ### Writing Rules
 

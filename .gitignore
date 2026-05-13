@@ -14,6 +14,8 @@ vendor/bundle/
 .DS_Store
 Thumbs.db
 ehthumbs.db
+NUL
+nul
 
 Gemfile.lock
 

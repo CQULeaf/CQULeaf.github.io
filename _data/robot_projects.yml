@@ -75,8 +75,8 @@ leap_hand_reorientation:
     title: LEAP Hand In-Hand Reorientation
     authors: Xuhang Ye
     venue: LEAP Hand robot learning project
-    abstract: Single-axis in-hand cube reorientation on LEAP Hand using Isaac Lab, rl_games PPO, proprioceptive observations, domain randomization, and real hardware deployment paths.
-    main_video_title: Main reorientation demo
+    abstract: "A single-axis in-hand cube reorientation project on the LEAP Hand. The policy is trained in Isaac Lab with rl_games PPO, proprioceptive observations, and domain randomization, then deployed to real hardware through the ROS2 control path."
+    main_video_title: Simulation and ROS2 hardware demos
   zh:
     title: LEAP Hand 方块重定向
     title_lines:
@@ -84,29 +84,20 @@ leap_hand_reorientation:
       - 方块重定向
     authors: 叶旭航
     venue: LEAP Hand 机器人学习项目
-    abstract: 基于 Isaac Lab 与 rl_games PPO 的 LEAP Hand 单轴手内方块重定向项目，依赖本体感觉观测、域随机化，并提供真实硬件部署路径。
-    main_video_title: 方块重定向主演示
-  hero_video: hero.mp4
-  sections:
-    - key: simulation
-      title:
-        en: Simulation demonstrations
-        zh: 仿真演示
-      videos:
-        - file: sim_reorientation.mp4
-          label:
-            en: Cube reorientation policy in simulation
-            zh: 方块重定向仿真策略
-    - key: hardware
-      title:
-        en: Real hardware demonstrations
-        zh: 实机演示
-      videos:
-        - file: real_reorientation_sdk.mp4
-          label:
-            en: Dynamixel SDK deployment
-            zh: Dynamixel SDK 实机部署
-        - file: real_reorientation_ros2.mp4
-          label:
-            en: ROS2 deployment path
-            zh: ROS2 部署路径
+    abstract: "面向 LEAP Hand 的单轴手内方块重定向项目。策略在 Isaac Lab 中基于 rl_games PPO、本体感觉观测与域随机化完成训练，再通过 ROS2 控制路径部署到真实硬件。"
+    main_video_title: 仿真与 ROS2 实机演示
+  featured_videos:
+    - file: sim_reorientation.mp4
+      kicker:
+        en: Simulation
+        zh: 仿真
+      label:
+        en: Cube reorientation policy rollout in Isaac Lab.
+        zh: Isaac Lab 中的方块重定向策略 rollout。
+    - file: real_reorientation_ros2.mp4
+      kicker:
+        en: Real hardware, ROS2
+        zh: ROS2 实机
+      label:
+        en: LEAP Hand cube reorientation deployed through the ROS2 hardware path.
+        zh: 通过 ROS2 硬件路径部署的 LEAP Hand 方块重定向演示。

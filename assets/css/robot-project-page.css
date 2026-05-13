@@ -77,11 +77,23 @@
   margin-top: 0.5rem;
 }
 
+.robot-project-demo-overview {
+  margin-top: 0.75rem;
+}
+
 .robot-project-page h2 {
   margin: 0 0 1rem;
   text-align: center;
   font-size: clamp(1.45rem, 3vw, 2rem);
   font-weight: 700;
+}
+
+.robot-project-video-intro {
+  width: min(720px, 100%);
+  margin: -0.3rem auto 1.1rem;
+  color: #555;
+  text-align: center;
+  font-size: 1rem;
 }
 
 .robot-project-abstract {
@@ -112,11 +124,16 @@
   gap: 1rem;
 }
 
+.robot-video-grid-featured {
+  align-items: start;
+  gap: 1.25rem;
+}
+
 .robot-video-card {
   position: relative;
   margin: 0;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 8px;
   background: #f4f4f4;
 }
 
@@ -127,11 +144,15 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #f4f4f4;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .robot-video-card-main video {
   aspect-ratio: 16 / 9;
+}
+
+.robot-video-card-featured {
+  background: #f7f7f7;
 }
 
 .robot-video-pending {
@@ -174,6 +195,20 @@
   font-size: 0.95rem;
 }
 
+.robot-video-card-featured figcaption {
+  padding: 0.75rem 0.65rem 0.1rem;
+}
+
+.robot-video-kicker {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #0071bc;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 @media (max-width: 720px) {
   .robot-project-page {
     font-size: 16px;
@@ -189,6 +224,10 @@
   }
 
   .robot-project-abstract {
+    text-align: left;
+  }
+
+  .robot-project-video-intro {
     text-align: left;
   }
 
