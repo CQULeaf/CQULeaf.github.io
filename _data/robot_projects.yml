@@ -88,7 +88,6 @@ leap_hand_reorientation:
     main_video_title: 仿真与 ROS2 实机演示
   featured_videos:
     - file: sim_reorientation.mp4
-      muted: true
       kicker:
         en: Simulation
         zh: 仿真
@@ -96,7 +95,6 @@ leap_hand_reorientation:
         en: Cube reorientation policy rollout in Isaac Lab.
         zh: Isaac Lab 中的方块重定向策略 rollout。
     - file: real_reorientation_ros2.mp4
-      muted: true
       kicker:
         en: Real hardware, ROS2
         zh: ROS2 实机
