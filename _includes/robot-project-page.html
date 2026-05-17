@@ -20,12 +20,15 @@
         <span>{{ copy.venue }}</span>
       </div>
       <div class="robot-project-actions" role="group" aria-label="Project links">
-        {% if project.paper %}
-        <a class="robot-project-button" href="{{ project.paper }}">Paper</a>
-        {% endif %}
-        {% if project.repo %}
-        <a class="robot-project-button" href="{{ project.repo }}">Code</a>
-        {% endif %}
+	        {% if project.paper %}
+	        <a class="robot-project-button" href="{{ project.paper }}">Paper</a>
+	        {% endif %}
+	        {% if project.tech_report %}
+	        <a class="robot-project-button" href="{{ project.tech_report }}">{% if lang == 'zh' %}技术报告{% else %}Tech Report{% endif %}</a>
+	        {% endif %}
+	        {% if project.repo %}
+	        <a class="robot-project-button" href="{{ project.repo }}">Code</a>
+	        {% endif %}
         <a class="robot-project-button" href="#videos">Videos</a>
         {% if page.translation_url %}
         <a class="robot-project-button" href="{{ page.translation_url }}">{% if lang == 'zh' %}English{% else %}中文{% endif %}</a>

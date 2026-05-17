@@ -71,6 +71,7 @@ leap_hand_rotation:
 leap_hand_reorientation:
   slug: leap-hand-inhand-reorientation
   repo: https://github.com/CQULeaf/leap-hand-inhand-reorientation
+  tech_report: https://github.com/CQULeaf/leap-hand-inhand-reorientation/blob/main/tech_report/main.pdf
   en:
     title: LEAP Hand In-Hand Reorientation
     authors: Xuhang Ye
