@@ -44,5 +44,6 @@ Dockerfile text eol=lf
 *.mov binary
 *.mp4 binary
 *.mp3 binary
+*.pdf binary
 *.ogg binary
 *.flv binary
