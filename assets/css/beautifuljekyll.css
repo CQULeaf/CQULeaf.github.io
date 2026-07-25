@@ -431,12 +431,8 @@ footer .footer-custom-content {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.35;
 }
-footer .footer-connect-line,
-footer .footer-connect-link {
+footer .footer-connect-line {
   margin: 0;
-}
-footer .footer-connect-link {
-  margin-top: 0.2rem;
 }
 
 @media (min-width: 768px) {
@@ -975,6 +971,10 @@ pre {
 }
 
 /* --- Misc blog post styles --- */
+
+.blog-post > p:not(:has(img)) {
+  text-indent: 2em;
+}
 
 .blog-post :first-child {
   margin-top: 0;

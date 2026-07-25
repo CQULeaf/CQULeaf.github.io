@@ -14,7 +14,7 @@
         }
       </script>
     {% else %}
-      <script src="{{ js | relative_url }}"></script>
+      <script src="{{ js | relative_url }}?v={{ site.time | date: '%s' }}"></script>
     {% endif %}
   {% endfor %}
 {% endif %}

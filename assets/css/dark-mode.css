@@ -211,6 +211,19 @@ body[data-theme="dark"] .post-meta {
   color: #a0a0a0 !important;
 }
 
+body[data-theme="dark"] .pagination .page-item .page-link {
+  background-color: #2d2d2d !important;
+  border-color: #404040 !important;
+  color: #8ecaff !important;
+}
+
+body[data-theme="dark"] .pagination .page-item .page-link:hover,
+body[data-theme="dark"] .pagination .page-item .page-link:focus {
+  background-color: #6bb3f0 !important;
+  border-color: #6bb3f0 !important;
+  color: #1a1a1a !important;
+}
+
 body[data-theme="dark"] hr.small {
   border-color: #404040 !important;
 }

@@ -178,6 +178,12 @@ let BeautifulJekyllJS = {
     if (themeIcon) {
       themeIcon.className = theme === "dark" ? "fa fa-sun" : "fa fa-moon";
     }
+    document.querySelectorAll("iframe.giscus-frame").forEach(function(frame) {
+      frame.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: theme } } },
+        "https://giscus.app"
+      );
+    });
   }
 };
 
