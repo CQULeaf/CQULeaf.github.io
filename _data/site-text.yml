@@ -30,6 +30,7 @@ en:
     next: "Next Post"
     tags: "Tags"
     minute_read: "minute read"
+    minutes_read: "minutes read"
     less_than_one_minute: "< 1 minute read"
   archive_page:
     title: "Archive"
@@ -116,6 +117,7 @@ zh:
     next: "下一篇"
     tags: "标签"
     minute_read: "分钟阅读"
+    minutes_read: "分钟阅读"
     less_than_one_minute: "少于 1 分钟阅读"
   archive_page:
     title: "归档"
