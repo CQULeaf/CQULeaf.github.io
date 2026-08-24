@@ -3,108 +3,100 @@ layout: post
 lang: en
 language: en
 translation_url: /zh/2026-04-02-codex-skills-i-recommend/
-title: The Codex Skills I Actually Recommend Right Now
-subtitle: A practical shortlist after building, debugging, and writing with it for real
+permalink: /2026-04-02-codex-skills-i-recommend/
+title: The Codex Skills I Recommend Right Now
+subtitle: Updated in August 2026, chosen by workflow rather than collection size
 tags: [Ideas and Insights, Software Development]
 readtime: true
-share-title: The Codex Skills I Actually Recommend Right Now
-share-description: A practical shortlist of the Codex skills I keep returning to for research, writing, review, and real development workflows.
+last-updated: 2026-08-18
+share-title: The Codex Skills I Recommend Right Now
+share-description: An August 2026 update to my Codex Skills shortlist, organized around research, browser verification, engineering feedback, and content work.
 share-img: /assets/img/project-logos/yxh-website.png
 ---
 
-For quite a while, I treated skills as something optional in Codex. I thought the model itself was already the main thing, so extra skills were probably just nice-to-have decorations.
+Four months ago, I wrote down a list of Codex Skills I recommended. Back then, I was still choosing them mostly by name, and when I was getting started, I cared a lot about how many I had collected. Names like `web-access`, `mem-search`, and `humanizer` looked like permanent keepers. In practice, they were still a long way from improving my efficiency or working well with the agent itself.
 
-After using Codex more seriously, I changed my mind.
+Looking back, that article aged faster than I expected. Skills get renamed, updated, repackaged into plugins, and moved from a local cache into a more formal marketplace. There is also a boundary that is easy to miss: seeing a skill in a catalog does not mean it is installed, enabled, registered, or ready with all of its dependencies.
 
-The difference between "a smart coding model" and "a useful working partner" is often not just the model. It is the surrounding workflow. That is also close to how OpenAI describes it in their recent [Codex page](https://openai.com/codex/) and [Codex app post](https://openai.com/index/introducing-the-codex-app/): skills help Codex go beyond raw code generation and make it more reliable at real work such as documentation, prototyping, code understanding, and tool-driven workflows.
+So I no longer want to offer a static collection of names. I would rather record the workflows I have repeatedly reached for in the past few months, along with the skills that have proved worth keeping in each one.
 
-OpenAI also mentioned that they have already built **hundreds of skills internally**. I do not find that surprising anymore. Once you start using Codex across writing, debugging, browsing, reviewing, and verification, a good skill stops feeling like a bonus. It starts feeling like part of the working environment.
+## Start with three layers
 
-So this article is not a full catalog. It is just a practical list of the Codex skills in my current setup that I honestly think are worth keeping.
+I now think about a Codex environment in three layers.
 
-## First: the skills that make Codex more grounded
+The first layer is Codex itself and the project's `AGENTS.md`. They define the model, repository boundaries, stable conventions, and safety rules. **Long-lived project rules** belong here.
 
-If I had to explain the value of skills in one sentence, I would say this: they reduce ambiguity.
+The second layer is Skills. A skill usually starts with a `SKILL.md` and may include scripts, references, templates, and examples. It is a good place for a **specific workflow** that will be repeated.
 
-That is why I would put `web-access` near the top of the list.
+The third layer is Plugins and external services. They can add skills, app connectors, commands, or account dependencies. Installation only means that an entry point exists. Whether it can actually run depends on registration, permissions, and dependencies in the current environment.
 
-When a task involves live information, dynamic pages, or anything that should be checked from the web instead of guessed, this skill matters a lot. It pushes Codex to treat browsing as real work rather than as an afterthought. For technical writing, tool comparison, or fact-checking, that makes a very visible difference.
+Once these layers are separate, several decisions become easier. Keep repository rules out of a giant skill, do not package a one-off command too early, and do not assume that a name in a catalog means an active capability.
 
-I would pair it with `multi-search-engine`.
+## First: skills that help me establish the facts
 
-I like this one because real search is messy. Some topics are easier to find on English search engines, some on Chinese ones, and some only show up properly when you switch engines or operators. A skill like this does not make Codex "smarter" in theory, but it does make research more practical in daily use.
+I now reach for `research` and `openai-docs` first.
 
-Then there is `mem-search`.
+`research` fits tasks that require source gathering, option comparison, or checking the current state of a product. Its useful output is a research note with sources that can support a later article, decision, or follow-up check. It also encourages a clean separation between official statements, source code, and my own judgment.
 
-This one is easy to underestimate until you have already used Codex for a while. Once past sessions start piling up, memory search becomes the difference between repeating old work and actually building on top of it. If I ask "how did we solve this last time?", I want retrieval, not improvisation.
+When the topic is Codex, the OpenAI API, models, pricing, or product behavior, I use `openai-docs`. Those details change quickly. Writing from an old memory can produce a polished explanation that is already wrong. The official docs answer how the product is supposed to work; a local test still answers what an ordinary user will actually experience.
 
-## Second: the skills that help me produce cleaner output
+The common thread is simple. These skills turn “I think it works this way” into “I checked it, and here is the source.” That matters in a blog post because one stale product detail can move the time coordinate of the whole argument.
 
-I do not only use Codex for code. I also use it for writing, organizing, polishing, and turning rough thoughts into something publishable.
+## Second: skills that tell me whether the page really works
 
-For that kind of work, `technical-writer` is one of the most useful skills I have.
+In the original article, I recommended `vercel:agent-browser` and `vercel:agent-browser-verify`. They are still useful, but I would describe the recommendation more precisely now.
 
-It is especially helpful when the task is documentation-heavy: README updates, usage guides, setup notes, or structured explanations. What I like about it is not that it makes the writing bigger. It usually does the opposite. It keeps the writing clearer, more task-oriented, and less chaotic.
+When I need to control an already open, already authenticated page, I use `browser:control-in-app-browser`. When I need to start a local server, fill a form, capture screenshots, or run a repeatable browser check from the terminal, I use `playwright`. They solve related but different problems. One acts on the current browser state; the other makes verification part of the engineering workflow.
 
-Then comes `humanizer`.
+This is now one of the capabilities I value most. A successful build only proves that the code passed one stage. It does not prove that the page renders correctly, that the mobile layout holds together, or that a button completes its action. On this blog, I prefer the result I can see in a browser to a sentence saying that the build passed.
 
-I genuinely like this one. AI-generated text often fails in a very predictable way: it becomes too smooth, too symmetrical, and too obviously "written by a system trying to sound polished." The `humanizer` skill is useful because it pushes the writing back toward normal human rhythm. That matters a lot for blog posts. I do not want my articles to read like product copy or generic generated summaries.
+For a website or UI project, I also use `frontend-design` when the task genuinely includes visual work. It brings hierarchy, readability, responsive states, and layout into the same conversation, while I still decide the brand direction. When the task does not need that, I do not enable it just to make the output sound more professional.
 
-Another one I would keep nearby is `frontend-design`.
+## Third: skills that close the engineering feedback loop
 
-Even when I do not need a dramatic redesign, this skill is useful because it nudges Codex away from safe, forgettable interface work. If I ask for a page improvement or a new section, I want it to feel designed, not merely assembled.
+I use `diagnosing-bugs`, `tdd`, and `code-review` as a connected set.
 
-## Third: the skills that save engineering time directly
+When something throws, behaves incorrectly, or becomes slow, `diagnosing-bugs` pulls the task back toward reproduction, isolation, verification, and regression checks. That is a better fit for cases where the first explanation sounds like a cache problem but the real cause is configuration or state.
 
-This is the group I appreciate most when I am already in the middle of building something.
+For shared logic, I use `tdd` to write the failing case before deciding how wide the implementation should be. Small edits can stay lightweight. When a change crosses module boundaries, affects a user flow, or has a history of regressions, starting with a failing test makes the rest of the work much clearer.
 
-For repository and review work, the GitHub skills are extremely practical: `github:github`, `github:gh-address-comments`, and `github:gh-fix-ci`.
+`code-review` is the pass I run after the change looks finished. It focuses on behavior regressions, edge cases, missing tests, and project standards. It often catches a change that is internally reasonable but still misses the original request.
 
-These are not flashy skills, but they are high-leverage. They help Codex move from "I changed some files" to "I can understand the repo state, inspect pull request context, address review comments, and debug failing checks without wasting motion."
+For GitHub work, I keep `github:github`, `github:gh-address-comments`, and `github:gh-fix-ci` nearby. They cover repository and pull request context, review feedback, and failing GitHub Actions. I still follow one rule around them: read the current state before changing it. A resolved comment, a passing check, and a local file are three different facts.
 
-That shift matters.
+## Fourth: skills for work that is not just code
 
-In the same way, `vercel:agent-browser` and `vercel:agent-browser-verify` are worth recommending to anyone who works on websites or UI-heavy projects. A page that builds successfully is not always a page that actually works. Being able to start a local server and then verify what really shows up in the browser is one of the easiest ways to avoid fake progress.
+I still keep `human-writing` and `technical-writer`, but I use them for different jobs.
 
-I have felt this very directly on this site. It is one thing to say "the build passed." It is another thing to open the page, check the actual content, and notice that the interaction, layout, or copy still feels wrong.
+`human-writing` is better for blog posts, essays, Chinese long-form writing, and any piece that needs to keep a personal point of view. It helps me control tone, evidence boundaries, and paragraph rhythm instead of turning experience into a generic answer.
 
-## Fourth: the skills that look boring until you need them
+`technical-writer` is better for README files, tutorials, migration notes, API documentation, and knowledge bases meant for collaborators. The goal is that another person can complete a task from the document. Structure, prerequisites, and verification matter more than literary polish.
 
-Some skills are easy to ignore because they do not sound exciting at first glance.
+For concrete files, `pdf`, `docx`, `pptx`, and `xlsx` are still worth keeping. They let Codex read and edit the files that real projects already contain, which makes it much easier to involve the agent in work beyond code. With spreadsheets and slide decks in particular, correct content is only the beginning. The final rendering still needs a visual check.
 
-I am talking about things like `pdf`, `docx`, `pptx`, and `xlsx`.
+When I need a bitmap asset, I use `imagegen`. That is a better boundary for image generation and editing, while `frontend-design` is about how those assets are presented in a page.
 
-These skills are not the first ones I would show in a demo, but they are exactly the kind of tools that make Codex more useful outside pure coding tasks. The moment you need to edit a Word document, extract content from a PDF, clean a spreadsheet, or update a slide deck, these stop being "extra" and start being the shortest path to getting real work done.
+## Fifth: skills that turn repeated work into a reusable process
 
-I would put `skill-creator` in this category too, although for a different reason.
+`skill-creator` is one I have become increasingly willing to recommend.
 
-OpenAI recently wrote that skills bundle instructions, resources, and scripts so Codex can run workflows more reliably. That is the part I find most important. Once a workflow repeats often enough, it is worth packaging. A custom skill is not just a convenience feature. It is a way to turn experience into reusable infrastructure.
+I first check whether a task has stable inputs, steps, and visible results. For example, a bilingual post on this site needs front matter, translation links, source checks, and a prose pass every time. After repeating that workflow a few times, packaging it as a skill makes sense. A one-off command is usually clearer as a project script.
 
-That also connects nicely with another recent OpenAI article, [Harness engineering](https://openai.com/index/harness-engineering/), which argues that a good `AGENTS.md` should act more like a map than an encyclopedia. I agree with that. Put stable guidance in the repo, keep it short, and move specific workflows into modular places. Skills fit that idea very well.
+If I am building a complete Codex plugin, I also look at `plugin-creator`, `skill-installer`, and `plugin-management`. They cover directory structure, installation and updates, discovery, permissions, and connection management. For a personal setup, their most important benefit is a clear boundary between cached, installed, enabled, and actually usable.
 
-## If I could only keep five
-
-If I had to keep only a small set from my current setup, I would probably choose these:
-
-1. `web-access`
-2. `technical-writer`
-3. `humanizer`
-4. `vercel:agent-browser`
-5. `github:github`
-
-This is not because they are the most advanced in some abstract sense. It is because together they cover the kind of work I actually do most often: research, writing, verification, and repository workflow.
+This has also changed how I read `AGENTS.md`. It should explain how the project works and what boundaries matter. The detailed procedure can live in a skill. Keep the rules short, keep the workflow concrete, and maintenance gets easier.
 
 ## Final thought
 
-My current feeling is simple: the best Codex setup is probably not the one with the most skills. It is the one with the smallest set of skills that reliably match your real habits.
+I care less about how many skills are in an environment now. I care whether the right one appears at the right time, whether its prerequisites are clear, and whether it leaves behind a result that can be checked.
 
-For me, that means I want skills that help Codex do four things well:
+For me, a comfortable Codex setup should do four things well: provide sources for research, feedback for code changes, a personal voice for writing, and a reusable path for repeated work.
 
-- find trustworthy information
-- write clearly
-- verify reality instead of assuming success
-- fit into an actual development workflow
+The catalog will keep changing, and the names will keep changing with it. The skills worth keeping are the ones that sit close to daily work and still get called again after the novelty is gone.
 
-If a skill helps with one of those, I am happy to keep it. If not, I would rather have a shorter list and a cleaner working environment.
+## Sources
 
-That is probably how I will keep growing this setup too: not by collecting everything, but by keeping the ones I truly reach for.
+- [Codex CLI repository](https://github.com/openai/codex)
+- [Codex Skills documentation](https://developers.openai.com/codex/skills)
+- [AGENTS.md guidance](https://developers.openai.com/codex/guides/agents-md)
+- [Introducing the Codex app](https://openai.com/index/introducing-the-codex-app/)
