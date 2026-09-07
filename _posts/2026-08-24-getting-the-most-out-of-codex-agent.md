@@ -4,12 +4,12 @@ lang: en
 language: en
 translation_url: /zh/2026-08-24-getting-the-most-out-of-codex-agent/
 permalink: /2026-08-24-getting-the-most-out-of-codex-agent/
-title: How I Get the Most Out of Codex as an Agent
-subtitle: How AGENTS.md, memory, plugins, MCP, hooks, and the CLI work together
-tags: [Ideas and Insights, Software Development]
+title: How I Organize Context and Tools in Codex
+subtitle: Connecting project guidance, task execution, and verification through a blog reading-time fix
+tags: [Codex, Agent Workflows]
 readtime: true
-share-title: How I Get the Most Out of Codex as an Agent
-share-description: A real workflow showing how AGENTS.md, memory, skills, plugins, MCP, hooks, and the CLI work together to turn Codex into a more capable agent.
+share-title: How I Organize Context and Tools in Codex
+share-description: A blog reading-time fix shows how I organize context and tools in Codex, from project guidance to task execution and verification.
 share-img: /assets/img/project-logos/yxh-website.png
 ---
 

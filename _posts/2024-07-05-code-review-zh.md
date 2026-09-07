@@ -4,16 +4,16 @@ lang: zh
 language: zh-CN
 translation_url: /2024-07-05-code-review/
 permalink: /zh/2024-07-05-code-review/
-title: 学会做好 Code Review
-subtitle: 让软件开发流程更高效
-tags: [Software Development]
+title: Code Review 入门
+subtitle: 审查的目标与反馈流程，以及 GitHub Pull Request 的辅助作用
+tags: [Code Review, GitHub]
 readtime: true
-share-title: 学会做好 Code Review：目标、流程与工具
-share-description: 从 code review 的核心目标讲起，梳理常见流程，并结合 GitHub 说明工具如何真正提升 review 效率。
+share-title: Code Review 入门
+share-description: 介绍代码审查的目标与反馈流程，以及 GitHub Pull Request 如何辅助审查。
 share-img: /assets/img/project-logos/yxh-website.png
 ---
 
-Code review 是软件开发流程中的重要环节，它通过**检查源代码**来帮助我们在早期发现 bug。通常，一次 code review 会发生在代码合并进主代码库之前。
+Code review 通过**阅读和讨论源代码**来发现 bug 和可维护性问题。通常，一次 code review 会发生在代码合并进主代码库之前。
 
 高质量的 code review 能够在开发早期就**阻止 bug 和错误进入项目**，并通过**提升代码质量**让整个开发流程更稳定、更高效。
 
@@ -29,7 +29,7 @@ Code review 是软件开发流程中的重要环节，它通过**检查源代码
 
 ## 为什么 Code Review 很重要？
 
-1. 尽可能保证代码里没有明显 bug。
+1. 发现审查者能够识别的缺陷，但不能保证代码完全没有 bug。
 2. 降低后续出现问题的概率。
 3. 确保新代码符合既定规范。
 4. 提升新增代码的整体效率和可维护性。
@@ -54,20 +54,20 @@ Code review 是软件开发流程中的重要环节，它通过**检查源代码
 
 ## 为什么要使用 Code Review 工具？
 
-Code review 的核心目标之一就是**提高效率**。传统的 review 方式在很多时候当然也能工作，但如果迟迟没有切换到更合适的工具，你很可能已经在无形中损失了效率。
+审查工具把 diff、评论和处理结果放在一起，方便跟进反馈，也可以把自动检查接入 Pull Request。代码是否符合需求、设计是否合理，仍然需要审查者判断。
 
-一个 code review 工具可以把流程里重复、机械的部分自动化，让 reviewer 更专注于代码本身，同时也能更自然地融入我们的开发流程，在代码合并前自动触发 review。
+两类自动分析可以辅助人工审查。
 
-在软件开发中，代码检测大致可以分成两类：
+1. **静态分析**在不运行程序的情况下检查代码，例如 lint 和类型检查。
+2. **动态分析**通过运行程序观察行为，例如测试运行期间的行为检查。
 
-1. **动态检测**：动态分析通常是检查代码是否遵守某些规则，并执行单元测试，这一部分往往由**预先写好的脚本**完成。
-2. **静态检测**：静态代码检测则发生在开发者写完新代码、准备合并之后。
+两者按是否执行程序区分，与检查发生在合并前还是合并后无关。
 
 ## 把 GitHub 当作强大的 Code Review 工具
 
-GitHub 的 Pull Request 本身就内置了相当实用的 code review 能力，而且它是 GitHub 核心服务的一部分。对于开发者来说，免费方案已经能覆盖不少场景，而付费方案也能进一步支持更复杂的团队协作。
+GitHub 在 Pull Request 中提供[代码审查功能](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)，支持评论、批准改动或请求修改。能够强制执行哪些审查规则，取决于仓库和套餐。
 
-在 GitHub 中，拥有仓库权限的 **reviewer** 可以给某个 pull request 分配 review，并完成审查。提交 PR 的 **developer** 也可以主动向管理员或团队成员请求 review。
+拥有仓库写权限的 PR 作者可以向符合条件的协作者请求审查。拥有读权限的人可以查看改动并提交反馈。
 
 除了整体层面的讨论之外，我们还可以：
 

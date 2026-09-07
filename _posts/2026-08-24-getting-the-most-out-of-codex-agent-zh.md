@@ -4,12 +4,12 @@ lang: zh
 language: zh-CN
 translation_url: /2026-08-24-getting-the-most-out-of-codex-agent/
 permalink: /zh/2026-08-24-getting-the-most-out-of-codex-agent/
-title: 我怎样把 Codex 的 Agent 能力真正用起来
-subtitle: 从 AGENTS.md、Memory 到 Plugins、MCP、Hooks 与 CLI
-tags: [Ideas and Insights, Software Development]
+title: 我怎样组织 Codex 的上下文与工具
+subtitle: 用一次博客阅读时长修复，串起项目规则、任务执行与结果验证
+tags: [Codex, Agent Workflows]
 readtime: true
-share-title: 我怎样把 Codex 的 Agent 能力真正用起来
-share-description: 一次真实工作流复盘，看看 AGENTS.md、Memory、Skills、Plugins、MCP、Hooks 与 CLI 怎样配合，让 Codex 从会做事变成能把事情做完。
+share-title: 我怎样组织 Codex 的上下文与工具
+share-description: 用一次博客阅读时长修复，说明我怎样组织 Codex 的上下文与工具，完成任务并验证结果。
 share-img: /assets/img/project-logos/yxh-website.png
 ---
 

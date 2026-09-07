@@ -4,9 +4,9 @@ lang: zh
 language: zh-CN
 translation_url: /2026-01-07-proxy-for-server/
 permalink: /zh/2026-01-07-proxy-for-server/
-title: 为云服务器配置代理
-subtitle:
-tags: [Proxy, Cloud Server]
+title: 在 Linux 云服务器上配置 V2Ray 代理客户端
+subtitle: 安装 v2ray-core，用 Shell 脚本管理进程与代理环境变量
+tags: [V2Ray, Proxy]
 readtime: true
 ---
 
@@ -15,7 +15,7 @@ readtime: true
 ## 两个核心步骤
 
 1. **安装一个“代理客户端”软件**：这类软件通常轻量高效，非常适合服务器环境，它的职责就是连接远端代理服务器。
-2. **配置系统环境变量**：这一步相当于打开“全局代理开关”。当客户端在后台运行，并建立了本地代理通道（例如 `127.0.0.1:1080`）之后，我们还需要告诉服务器上的其他程序，把网络请求发往这个本地地址。
+2. **在当前 Shell 中配置代理环境变量**。客户端监听 `127.0.0.1:1080` 后，从这个 Shell 启动、并且支持这些变量和 SOCKS 代理的程序才会使用它。已经运行的应用、系统服务或忽略这些变量的程序需要单独配置。这不会把全部系统流量都送进代理。
 
 ## 分步指南
 
@@ -221,5 +221,17 @@ esac
 # Check the process
 ps aux | grep v2ray
 
-# Check the port listening status and you should see 127.0.0.1:1080
+# Check that the local SOCKS port is listening
+ss -ltnp 'sport = :1080'
+
+# Explicitly test the SOCKS proxy, including remote DNS resolution
+curl --noproxy "" --socks5-hostname 127.0.0.1:1080 --fail --max-time 10 https://httpbin.org/ip
+
+# Inspect recent logs without blocking the next check
+tail -n 20 /tmp/v2ray.log
+
+# Test an HTTPS request using the current shell's proxy variables
+curl --fail --head --max-time 10 https://github.com
 ```
+
+IP 查询应显示代理出口地址，它可能与这台云服务器的地址不同。进程存在或端口监听都不能单独证明请求成功。最后一条命令用 curl 测试 HTTP 连通性，不涉及 ICMP ping；其他程序是否读取代理环境变量，需要分别确认。

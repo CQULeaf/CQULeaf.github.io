@@ -4,12 +4,12 @@ lang: zh
 language: zh-CN
 translation_url: /2024-05-19-my-first-blog/
 permalink: /zh/2024-05-19-my-first-blog/
-title: 从这里开始，成为一个 BDD 人
-subtitle: 写下去，持续写下去
-tags: [Ideas and Insights]
+title: 我为什么开始写博客
+subtitle: 从 Blog-Driven Development 开始，用写作梳理学到的东西
+tags: [Blogging]
 readtime: true
-share-title: 从这篇文章开始，正式开启我的 Blog-Driven Development
-share-description: 为什么我决定认真写博客，BDD 对我意味着什么，以及这个个人网站为什么会成为成长记录的一部分。
+share-title: 我为什么开始写博客
+share-description: Blog-Driven Development 怎样促使我开始写博客，用写作整理学到的东西。
 share-img: /assets/img/Avatar.jpg
 ---
 

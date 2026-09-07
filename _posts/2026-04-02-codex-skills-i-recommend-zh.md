@@ -5,8 +5,8 @@ language: zh-CN
 translation_url: /2026-04-02-codex-skills-i-recommend/
 permalink: /zh/2026-04-02-codex-skills-i-recommend/
 title: 我目前推荐使用的 Codex Skills
-subtitle: 2026 年 8 月更新，按工作流来选，不看收藏数量
-tags: [Ideas and Insights, Software Development]
+subtitle: 按实际工作流选择，覆盖调研、工程验证与内容处理
+tags: [Codex, Agent Skills]
 readtime: true
 last-updated: 2026-08-18
 share-title: 我目前推荐使用的 Codex Skills

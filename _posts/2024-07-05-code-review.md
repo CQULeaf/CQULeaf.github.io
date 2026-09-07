@@ -3,16 +3,16 @@ layout: post
 lang: en
 language: en
 translation_url: /zh/2024-07-05-code-review/
-title: Learn to Perform a good Code Review
-subtitle: Make the software development process more efficient
-tags: [Software Development]
+title: An Introduction to Code Review
+subtitle: Review goals, feedback practices, and the role of GitHub pull requests
+tags: [Code Review, GitHub]
 readtime: true
-share-title: Learn to Perform Better Code Reviews
-share-description: A practical introduction to code review goals, common workflows, and why tools like GitHub can make the process more effective.
+share-title: An Introduction to Code Review
+share-description: An introduction to review goals, feedback practices, and how GitHub pull requests support code review.
 share-img: /assets/img/project-logos/yxh-website.png
 ---
 
-Code review is a part of the software development process which involves ***testing the source code*** to identify bugs at an early stage. A code review process is typically conducted before merging with the codebase.
+Code review involves **reading and discussing source code** to identify bugs and maintainability issues. It typically happens before a change is merged into the main codebase.
 
 An effective code review ***prevents bugs and errors*** from getting into our project by ***improving code quality*** at an early stage of the software development process.
 
@@ -28,7 +28,7 @@ There are three aspects we should consider:
 
 ## Why Is Code Review Critical?
 
-1. Ensure that we have no bugs in code.
+1. Catch defects that the reviewer can identify; a review cannot guarantee bug-free code.
 2. Minimize our chances of having issues.
 3. Confirm new code adheres to guidelines.
 4. Increase the efficiency of new code.
@@ -53,19 +53,19 @@ A tool-assisted code review process involves the use of a specialized tool to fa
 
 ## Why Using Code Review Tools?
 
-The main outcome of a code review process is to ***increase efficiency***. While these traditional methods of code review have worked in the past, **you may be losing efficiency if you haven’t switched to a code review tool**.
+Review tools keep diffs, comments, and decisions together. They can make feedback easier to follow and integrate automated checks into a pull request, while reviewers still need to judge the code and its intent.
 
-A code review tool automates the process of code review so that a reviewer solely focuses on the code and it can integrate with our development cycle to initiate a code review before new code is merged into the main codebase.
+Two kinds of automated analysis can complement human review.
 
-There are two types of code testing in software development:
+1. **Static analysis** examines code without executing it, for example through a linter or type checker.
+2. **Dynamic analysis** examines a running program, for example by checking its behavior during tests.
 
-1. **Dynamic**: Dynamic analysis involves checking if the code follows a set of rules and running unit tests, typically performed by a ***predefined script***.
-2. **Static**: Static code testing is done *after* a developer creates a new code to be merged into the current code.
+The distinction is whether the program is executed, not whether the check happens before or after a merge.
 
 ## Use GitHub as a Powerful Code Review Tool
 
-GitHub has an **inbuilt code review tool** in its pull requests. The code review tool is bundled with GitHub’s core service, which provides a free plan for developers. GitHub’s free plan limits the number of users to three in private repositories. Paid plans start at $7 per month.
+GitHub provides [code review within pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews). Reviewers can comment, approve changes, or request changes. Available enforcement features depend on the repository and plan.
 
-GitHub allows a **reviewer** with access to the code repository to assign themselves to the pull request and complete a review. A **developer** who has submitted the pull request may also request a review from an administrator.
+A pull request author with write access to the repository can request a review from an eligible collaborator. People with read access can inspect the changes and submit their feedback.
 
 In addition to the discussion on the overall pull request, we are able to **analyze the diff, comment inline, and check the history of changes**. The code review tool also allows us to resolve simple Git conflicts through the web interface. GitHub even allows us to integrate with additional review tools through its marketplace to create a more robust process.

@@ -5,8 +5,8 @@ language: en
 translation_url: /zh/2026-04-02-codex-skills-i-recommend/
 permalink: /2026-04-02-codex-skills-i-recommend/
 title: The Codex Skills I Recommend Right Now
-subtitle: Updated in August 2026, chosen by workflow rather than collection size
-tags: [Ideas and Insights, Software Development]
+subtitle: Chosen for practical workflows in research, engineering verification, and content work
+tags: [Codex, Agent Skills]
 readtime: true
 last-updated: 2026-08-18
 share-title: The Codex Skills I Recommend Right Now

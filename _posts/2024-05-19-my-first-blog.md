@@ -3,12 +3,12 @@ layout: post
 lang: en
 language: en
 translation_url: /zh/2024-05-19-my-first-blog/
-title: Start from Here & To Be a BDD
-subtitle: Write, write and write
-tags: [Ideas and Insights]
+title: Why I Started Blogging
+subtitle: Starting with Blog-Driven Development to make sense of what I learn
+tags: [Blogging]
 readtime: true
-share-title: Start from Here and Begin My Blog-Driven Development Journey
-share-description: Why I started writing seriously, what Blog-Driven Development means to me, and how this personal site became part of that journey.
+share-title: Why I Started Blogging
+share-description: Why Blog-Driven Development encouraged me to start writing and organize what I learn.
 share-img: /assets/img/Avatar.jpg
 ---
 

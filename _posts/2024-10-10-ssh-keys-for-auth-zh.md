@@ -4,14 +4,14 @@ lang: zh
 language: zh-CN
 translation_url: /2024-10-10-ssh-keys-for-auth/
 permalink: /zh/2024-10-10-ssh-keys-for-auth/
-title: 为 GitHub 认证配置 SSH Keys
-subtitle: 用一份分步指南完成更安全、更简洁的 GitHub 身份认证
-tags: [Trivial Tech Knowledge]
+title: 在 Windows 上配置 GitHub SSH 认证
+subtitle: 在 Git Bash 中管理密钥，添加公钥并测试连接
+tags: [SSH, GitHub]
 readtime: true
 last-updated: 2024-10-13
 ---
 
-在使用 GitHub 时，我们需要一种安全的方式来连接和管理仓库。由于 GitHub 已经在 2021 年 8 月 13 日之后停止支持密码认证，**使用 SSH Keys 进行认证**就成为了一种更合理的实践。本文会一步一步带你完成 SSH key 的生成、添加到 GitHub，以及最终的连接测试。
+GitHub 不接受用账号密码认证 HTTPS Git 操作。HTTPS 可以使用 token 或凭据管理器，**SSH 则使用密钥对**。这些方式与登录 GitHub 网站是不同的场景。本文在 Windows 的 Git Bash 中完成 SSH 密钥生成、添加公钥和连接测试。认证方式的区别可以参考 GitHub 的[认证指南](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)。
 
 ## 什么是 SSH Keys？
 
@@ -26,13 +26,13 @@ SSH keys 是一对密码学密钥，用于在连接远程服务器或 GitHub 这
 
 ### 第一步：生成 SSH Key Pair
 
-打开终端（PowerShell 或 Git Bash），执行下面的命令：
+打开 Git Bash，执行下面的命令。
 
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
-系统会询问你把密钥保存到哪里。直接按 `Enter` 使用默认路径即可。如果你想增加一层安全性，也可以设置 passphrase；如果不需要，留空即可（推荐）。
+系统会询问密钥的保存位置。确认不会覆盖已有密钥后，才使用默认路径；否则另选文件名，并在后续命令中使用对应路径。建议设置足够强的 passphrase 来保护私钥，再交给 ssh-agent 管理，减少同一会话中反复输入口令的次数。具体说明可参考 GitHub 的[密钥生成指南](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)。
 
 ![save-ssh-key](../assets/img/save-ssh-key.png)
 
@@ -40,7 +40,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 
 如果你希望 SSH key 能**自动被管理和使用**，就需要启动 SSH agent：
 
-这里建议使用 **Git Bash**（而不是 IDE 内置终端或 PowerShell），然后执行：
+继续在同一个 **Git Bash** 会话中执行。下面使用的是 Bash 语法，PowerShell 与 Windows OpenSSH agent 需要采用另一套配置方式。
 
 ```bash
 eval "$(ssh-agent -s)"
@@ -49,22 +49,22 @@ ssh-add ~/.ssh/id_ed25519
 
 ### 第三步：把 SSH Public Key 添加到 GitHub
 
-1. 先复制你的公钥内容：
+1. 显示公钥后复制输出内容。不要复制或上传私钥。
 
    ```bash
    cat ~/.ssh/id_ed25519.pub
    ```
 
-2. 打开你的 [GitHub SSH settings](https://github.com/settings/keys)，然后点击 **New SSH key**。
+2. 打开 [GitHub SSH settings](https://github.com/settings/keys)，点击 **New SSH key**，选择 **Authentication Key**，粘贴公钥。
 
 ### 第四步：测试 SSH 连接
 
-最后，我们需要确认配置是否成功。执行下面的命令（这一步在 IDE 终端中执行也可以）：
+在同一个 Git Bash 会话中执行下面的命令，测试连接。
 
 ```bash
 ssh -T git@github.com
 ```
 
-根据提示继续操作，如果一切正常，你会看到连接成功的提示信息。
+首次连接时，先将主机指纹与 [GitHub 公布的指纹](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)核对，确认一致后再接受。成功时会提示已经通过认证，同时说明 GitHub 不提供 shell 访问；官方的[连接测试说明](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection)指出，即使认证成功，这条命令也会以状态码 1 退出。
 
 ![test-ssh-connection](../assets/img/test-ssh-connection.png)

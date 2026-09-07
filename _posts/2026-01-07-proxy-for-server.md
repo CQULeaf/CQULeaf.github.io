@@ -3,9 +3,9 @@ layout: post
 lang: en
 language: en
 translation_url: /zh/2026-01-07-proxy-for-server/
-title: Setting Up a Proxy for the Cloud Server
-subtitle: 
-tags: [Proxy, Cloud Server]
+title: Setting Up a V2Ray Proxy Client on a Linux Cloud Server
+subtitle: Install v2ray-core and manage its process and proxy environment variables with a shell script
+tags: [V2Ray, Proxy]
 readtime: true
 ---
 
@@ -14,7 +14,7 @@ For a brand new domestic Linux cloud server, network issues are often a signific
 ## Two Core Steps
 
 1. **Install a "proxy client" software:** This type of software is lightweight and efficient, making it suitable for server environments. Its sole purpose is to connect to a remote proxy server.
-2. **Configure system environment variables:** It acts as a "global proxy switch." When the client software is running in the background and has created a local proxy channel (`127.0.0.1:1080`), we need to tell other programs on the server to send all network requests to this local address, `127.0.0.1:1080`.
+2. **Configure proxy environment variables in the current shell.** Once the client listens on `127.0.0.1:1080`, programs launched from that shell can use it if they support the variables and SOCKS proxies. Already-running applications, system services, and programs that ignore these variables need separate configuration. This does not route all system traffic through the proxy.
 
 ## Step-by-step Guidance
 
@@ -220,15 +220,17 @@ Finally, we can perform some tests to help us verify that V2Ray is running corre
 # Check the process
 ps aux | grep v2ray
 
-# Check the port listening status and you should see 127.0.0.1:1080
-netstat -tlnp | grep v2ray
+# Check that the local SOCKS port is listening
+ss -ltnp 'sport = :1080'
 
-# Test proxy connection and you should see your server address
-curl --socks5 127.0.0.1:1080 -m 10 http://httpbin.org/ip
+# Explicitly test the SOCKS proxy, including remote DNS resolution
+curl --noproxy "" --socks5-hostname 127.0.0.1:1080 --fail --max-time 10 https://httpbin.org/ip
 
-# View real-time logs
-tail -f /tmp/v2ray.log
+# Inspect recent logs without blocking the next check
+tail -n 20 /tmp/v2ray.log
 
-# Ping the github.com
-curl -I https://github.com
+# Test an HTTPS request using the current shell's proxy variables
+curl --fail --head --max-time 10 https://github.com
 ```
+
+The IP response should show the proxy's exit address, which may differ from this cloud server's address. A running process or listening port alone does not prove that requests succeed. The final command tests HTTP connectivity with curl, not ICMP ping; environment-variable support varies by program.
