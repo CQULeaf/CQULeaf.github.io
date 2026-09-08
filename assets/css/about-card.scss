@@ -35,7 +35,7 @@
 }
 
 .about-card-title {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--site-font);
   font-weight: 700;
   font-size: 1.25rem;
   color: #333;
@@ -69,7 +69,7 @@
 }
 
 .about-section-title {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--site-font);
   font-weight: 800;
   font-size: 2rem;
   text-align: center;

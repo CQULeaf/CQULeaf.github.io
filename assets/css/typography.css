@@ -1,0 +1,41 @@
+/* Pagella is an open Palatino-style face; Noto Serif SC supplies CJK glyphs.
+   Keep the Latin face first so mixed Chinese/English text uses both families. */
+:root {
+  --site-font: 'TeX Gyre Pagella', 'Palatino Linotype', Palatino, 'Book Antiqua', 'Noto Serif CJK SC', 'Noto Serif SC', serif;
+}
+
+body {
+  font-family: var(--site-font);
+}
+
+@font-face {
+  font-family: 'TeX Gyre Pagella';
+  src: url('../fonts/tex-gyre-pagella/texgyrepagella-regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TeX Gyre Pagella';
+  src: url('../fonts/tex-gyre-pagella/texgyrepagella-italic.otf') format('opentype');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TeX Gyre Pagella';
+  src: url('../fonts/tex-gyre-pagella/texgyrepagella-bold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TeX Gyre Pagella';
+  src: url('../fonts/tex-gyre-pagella/texgyrepagella-bolditalic.otf') format('opentype');
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}

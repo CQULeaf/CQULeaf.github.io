@@ -1,7 +1,7 @@
 .robot-project-page {
   color: #222;
   background: #fff;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--site-font);
   font-size: 17px;
   line-height: 1.55;
   margin-top: -1.875rem;

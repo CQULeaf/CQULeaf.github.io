@@ -29,7 +29,7 @@
 
 /* TOC Title */
 .toc-title {
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--site-font);
   font-size: 0.875rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -47,7 +47,7 @@
 
 /* TOC Content list */
 #toc-content {
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--site-font);
 }
 
 #toc-content ul {
