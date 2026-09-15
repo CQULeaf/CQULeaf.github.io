@@ -417,45 +417,230 @@ footer a:focus {
   color: {{ site.footer-hover-col | default: "#0085A1" }};
 }
 
-footer .list-inline {
+footer .footer-contact-area {
+  display: grid;
+  gap: 1.5rem;
+}
+
+footer .footer-custom-content {
+  font-family: var(--site-font);
+  line-height: 1.6;
+}
+
+footer .footer-connect h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  color: {{ site.text-col | default: "#404040" }};
+}
+
+footer .footer-connect-line {
+  margin: 0 0 0.75rem;
+  max-width: 24rem;
+}
+
+footer .footer-connect > a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+footer .footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.25rem 0.75rem;
+  align-content: start;
   margin: 0;
   padding: 0;
-  margin-bottom: 1.1rem;
+  text-align: left;
 }
-footer .copyright {
-  font-family: var(--site-font);
-  text-align: center;
-  margin-bottom: 0;
-  margin-top: 0;
+
+footer .footer-links .list-inline-item {
+  margin: 0;
+  min-width: 0;
+}
+
+.footer-network-icon {
+  display: inline-flex;
+  flex: 0 0 1.25rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+}
+
+.footer-network-label {
+  font-size: 0.875rem;
   line-height: 1.4;
 }
-footer .theme-by {
-  text-align: center;
-  margin: 0.25rem 0 0;
-  line-height: 1.35;
+
+footer .footer-site-info {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35rem 1rem;
+  margin-top: 1.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d0d0d0;
+  align-items: baseline;
 }
-footer .footer-custom-content {
-  text-align: center;
-  margin-bottom: 0.55rem;
-  font-family: var(--site-font);
-  line-height: 1.35;
-}
-footer .footer-connect-line {
+
+footer .copyright {
   margin: 0;
+  text-align: left;
+  line-height: 1.4;
+}
+
+footer .theme-by {
+  grid-column: 1 / -1;
+  margin: 0;
+  text-align: left;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+footer .footer-subscribe {
+  justify-self: end;
+}
+
+.footer-wechat-toggle {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: {{ site.footer-link-col | default: "#404040" }};
+  font: inherit;
+  cursor: pointer;
+}
+
+footer .footer-links a,
+footer .footer-wechat-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  text-decoration: none;
+}
+
+.footer-wechat-toggle:hover {
+  color: {{ site.footer-hover-col | default: "#0085A1" }};
+}
+
+.footer-x-mark {
+  font-family: Arial, sans-serif;
+}
+
+.contact-panel {
+  width: min(22rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  background: #fff;
+  color: #404040;
+  text-align: center;
+  overflow: auto;
+  box-shadow: 0 8px 32px #0003;
+}
+
+.contact-panel::backdrop {
+  background: #0005;
+}
+
+.contact-panel h2 {
+  margin: 0 2rem 0.75rem;
+  font-size: 1.25rem;
+}
+
+.contact-panel p {
+  margin: 0.75rem 0;
+}
+
+.contact-close {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.wechat-qr {
+  position: relative;
+  width: 240px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+}
+
+/* Show the original image's 772px square at (100, 384), including QR quiet space. */
+.wechat-qr img {
+  position: absolute;
+  width: 125.907%;
+  max-width: none;
+  height: auto;
+  left: -12.953%;
+  top: -49.741%;
+}
+
+.wechat-id-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.wechat-id-row .contact-copy-button {
+  padding: 0.25rem 0.5rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border: 0;
+  font-size: 1rem;
+}
+
+.wechat-id-row .copy-status {
+  flex-basis: 100%;
+  margin: 0;
+}
+
+.contact-copy-value {
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+.contact-copy-button {
+  padding: 0.6rem 1rem;
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.copy-status {
+  min-height: 1.5em;
+  font-size: 0.875rem;
+}
+
+.footer-links :focus-visible,
+.contact-panel button:focus-visible,
+.contact-copy-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
 }
 
 @media (min-width: 768px) {
   footer {
     padding: 3.125rem 0;
   }
-  footer .footer-links {
-    font-size: 1.125rem;
-  }
-  footer .copyright {
-    font-size: 1rem;
-  }
-  footer .footer-custom-content {
-    font-size: 1rem;
+  footer .footer-contact-area {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
   }
 }
 

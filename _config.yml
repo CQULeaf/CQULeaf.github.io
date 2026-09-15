@@ -11,6 +11,7 @@
 
 # Name of website
 title: Growth Testimony of Xuhang Ye
+url: "https://yexuhang.com"
 
 # Your name to show in the footer
 author: Xuhang Ye
@@ -54,12 +55,12 @@ round-avatar: true
 # You can change the order that they show up on the page by changing the order here.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "cquleaf@yexuhang.com"
-  rss: true
+  linkedin: xuhang-ye-5780533b9
   github: CQULeaf
-  google-scholar: xdeVKGcAAAAJ
-  stackoverflow: "20622708/xuhang-ye"
-  kaggle: xuhangye
+  email: "cquleaf@yexuhang.com"
+  wechat: cquleaf
+  telegram: cquleaf
+  x: leaf041014
 #  medium: yourname
 #  reddit: yourname
 #  linkedin: daattali
@@ -165,8 +166,8 @@ footer-extra:
   - "footer-connect.html"
 
 # If you have common JavaScript files that should be included in every page, list them here
-#site-js:
-#  - "/assets/js/custom-script.js"
+site-js:
+  - "/assets/js/copy-text.js"
 
 #################################
 # --- Web Analytics Section --- #

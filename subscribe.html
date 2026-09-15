@@ -1,0 +1,26 @@
+---
+layout: page
+title: Subscribe to posts
+subtitle: Follow new posts in your RSS reader
+lang: en
+language: en
+permalink: /subscribe/
+translation_url: /zh/subscribe/
+---
+
+<p>You can follow this blog in an RSS reader. Add the feed address below to your reader to receive new posts without checking the website. The feed includes both English and Chinese posts.</p>
+
+<h2>Feed address</h2>
+<p class="contact-copy-value">{{ '/feed.xml' | absolute_url }}</p>
+<div class="copy-control">
+  <button type="button" class="contact-copy-button" data-copy-text="{{ '/feed.xml' | absolute_url }}" data-copy-success="{{ site.data.site-text.en.footer.copied }}" data-copy-error="{{ site.data.site-text.en.footer.copy_failed }}">Copy feed address</button>
+  <p class="copy-status" role="status"></p>
+</div>
+
+<h2>How to subscribe</h2>
+<ol>
+  <li>Copy the feed address above.</li>
+  <li>Open your RSS reader and choose to add a feed or subscription.</li>
+  <li>Paste the address and confirm. New posts will appear in your reader.</li>
+</ol>
+<p>If you already use a reader that handles feed links, you can <a href="{{ '/feed.xml' | relative_url }}">open the RSS feed directly</a>. A browser may display XML at that link; your reader uses it to fetch posts.</p>

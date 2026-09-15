@@ -55,8 +55,30 @@ body[data-theme="dark"] .beautiful-jekyll-footer {
   color: #a0a0a0 !important;
 }
 
+body[data-theme="dark"] .footer-site-info {
+  border-color: #404040;
+}
+
+body[data-theme="dark"] .footer-connect h2 {
+  color: #e0e0e0;
+}
+
 body[data-theme="dark"] .footer-links li a {
   color: #a0a0a0 !important;
+}
+
+body[data-theme="dark"] .footer-wechat-toggle {
+  color: #a0a0a0;
+}
+
+body[data-theme="dark"] .footer-wechat-toggle:hover {
+  color: #8ecaff;
+}
+
+body[data-theme="dark"] .contact-panel {
+  background: #2d2d2d;
+  border-color: #404040;
+  color: #e0e0e0;
 }
 
 body[data-theme="dark"] .footer-links li a:hover {

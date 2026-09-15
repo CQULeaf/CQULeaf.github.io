@@ -1,0 +1,26 @@
+---
+layout: page
+title: 订阅文章
+subtitle: 在 RSS 阅读器中获取新文章
+lang: zh
+language: zh-CN
+permalink: /zh/subscribe/
+translation_url: /subscribe/
+---
+
+<p>你可以通过 RSS 阅读器关注这个博客。把下方订阅地址添加到阅读器，就能获取新文章，无需反复打开网站查看。订阅源同时包含中英文文章。</p>
+
+<h2>订阅地址</h2>
+<p class="contact-copy-value">{{ '/feed.xml' | absolute_url }}</p>
+<div class="copy-control">
+  <button type="button" class="contact-copy-button" data-copy-text="{{ '/feed.xml' | absolute_url }}" data-copy-success="{{ site.data.site-text.zh.footer.copied }}" data-copy-error="{{ site.data.site-text.zh.footer.copy_failed }}">复制订阅地址</button>
+  <p class="copy-status" role="status"></p>
+</div>
+
+<h2>如何订阅</h2>
+<ol>
+  <li>复制上方订阅地址。</li>
+  <li>打开 RSS 阅读器，选择添加订阅源。</li>
+  <li>粘贴地址并确认，之后就能在阅读器中查看新文章。</li>
+</ol>
+<p>如果你的阅读器支持接管订阅链接，也可以<a href="{{ '/feed.xml' | relative_url }}">直接打开 RSS 订阅源</a>。浏览器可能会显示 XML 内容，这是供阅读器获取文章的数据。</p>
