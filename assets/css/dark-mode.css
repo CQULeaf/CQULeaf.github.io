@@ -151,12 +151,13 @@ body[data-theme="dark"] .floating-input:focus {
 }
 
 body[data-theme="dark"] .floating-label {
-  background: #2d2d2d !important;
+  background: transparent !important;
   color: #a0a0a0 !important;
 }
 
 body[data-theme="dark"] .floating-input:focus + .floating-label,
 body[data-theme="dark"] .floating-input:not(:placeholder-shown) + .floating-label {
+  background: #2d2d2d !important;
   color: #6bb3f0 !important;
 }
 
