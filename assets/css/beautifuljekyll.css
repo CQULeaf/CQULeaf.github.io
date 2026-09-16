@@ -626,6 +626,11 @@ footer .footer-wechat-toggle {
   font-size: 0.875rem;
 }
 
+.footer-wechat-toggle:focus:not(:focus-visible),
+.contact-panel button:focus:not(:focus-visible) {
+  outline: none;
+}
+
 .footer-links :focus-visible,
 .contact-panel button:focus-visible,
 .contact-copy-button:focus-visible {
