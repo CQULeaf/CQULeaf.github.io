@@ -25,6 +25,15 @@
   {% endfor %}
 {% endif %}
 
+{% if page.math %}
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      TeX: { equationNumbers: { autoNumber: "all" } }
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+{% endif %}
+
 {% if page.ext-js %}
   {% for js in page.ext-js %}
     {% include ext-js.html js=js %}

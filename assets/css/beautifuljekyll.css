@@ -1058,6 +1058,37 @@ table tr td :last-child {
   margin-bottom: 0;
 }
 
+/* Opt-in scientific tables: top, header, and bottom rules only. */
+.blog-post table.three-line {
+  margin: 1.5rem auto;
+  max-width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+.blog-post table.three-line tr,
+.blog-post table.three-line th,
+.blog-post table.three-line td {
+  border: 0;
+  background: transparent;
+  text-align: center;
+}
+.blog-post table.three-line thead {
+  border-bottom: 1px solid currentColor;
+}
+
+.math-post .MJXc-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
+.math-post [id^="mjx-eqn-"] {
+  scroll-margin-top: 3.125rem;
+}
+.math-post [id^="mjx-eqn-"]:target::before {
+  display: none;
+}
+
 /* --- Code blocks --- */
 
 code {
