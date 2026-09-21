@@ -60,7 +60,7 @@
   margin: 0.25rem 0;
 }
 
-#toc-content > ul > li > a {
+#toc-content a {
   display: block;
   padding: 0.25rem 0.5rem;
   font-size: 0.8125rem;
@@ -69,6 +69,27 @@
   text-decoration: none;
   border-left: 2px solid transparent;
   transition: all 0.2s ease;
+}
+
+#toc-content > ul > li > a {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #444;
+}
+
+#toc-content li.toc-level-2 > a {
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+#toc-content li.toc-level-3 > a {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+#toc-content li.toc-level-4 > a {
+  font-size: 0.7rem;
+  font-weight: 400;
 }
 
 #toc-content a:hover {
@@ -86,9 +107,19 @@
 
 /* H3 items (nested) */
 #toc-content ul ul a {
-  padding-left: 1.25rem;
+  padding-left: 0.65rem;
   font-size: 0.75rem;
   color: #666;
+}
+
+#toc-content ul ul {
+  margin: 0.2rem 0 0.45rem 0.65rem;
+  padding-left: 0.45rem;
+  border-left: 1px solid #d9d9d9;
+}
+
+[data-theme="dark"] #toc-content ul ul {
+  border-left-color: #3a3a3a;
 }
 
 /* H4 items */
@@ -97,9 +128,17 @@
   font-size: 0.7rem;
 }
 
-/* Smooth scroll offset for fixed header */
-#toc-content a {
-  scroll-margin-top: 4.5rem;
+/* The global target spacer is disabled for headings: use one navbar-height offset. */
+.blog-post h2,
+.blog-post h3,
+.blog-post h4 {
+  scroll-margin-top: 3.125rem;
+}
+
+.blog-post h2:target::before,
+.blog-post h3:target::before,
+.blog-post h4:target::before {
+  display: none;
 }
 
 /* Hide TOC if empty */

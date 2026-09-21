@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Create TOC list
   const tocList = document.createElement('ul');
+  const parents = [];
 
   headings.forEach(function(heading, index) {
     // Generate ID if not present
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const level = parseInt(heading.tagName.substring(1));
 
     const li = document.createElement('li');
+    li.className = 'toc-level-' + level;
     const a = document.createElement('a');
     a.href = '#' + heading.id;
     a.textContent = heading.textContent;
@@ -48,7 +50,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     li.appendChild(a);
-    tocList.appendChild(li);
+    while (parents.length && parents[parents.length - 1].level >= level) {
+      parents.pop();
+    }
+    let list = tocList;
+    if (parents.length) {
+      const parent = parents[parents.length - 1].li;
+      list = parent.querySelector('ul');
+      if (!list) {
+        list = document.createElement('ul');
+        parent.appendChild(list);
+      }
+    }
+    list.appendChild(li);
+    parents.push({ level, li });
   });
 
   tocContent.appendChild(tocList);

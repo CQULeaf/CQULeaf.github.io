@@ -123,6 +123,15 @@ Do not treat generated files or dependency directories as source content.
 - For new bilingual posts, make sure `translation_url`, language metadata, and permalink behavior stay correctly paired.
 - When the user supplies a revised Chinese draft as the baseline, align the English version with that draft. Preserve an explicit instruction to keep `last-updated` unchanged.
 
+### Mathematical and Scientific Posts
+
+- Follow the concrete syntax in `README.md` under "Mathematical posts". Opt in with `math: true`; do not duplicate the MathJax script in `ext-js`.
+- Use semantic `\label{eq:...}` labels and `\eqref{eq:...}` references instead of hard-coded equation numbers or hand-built anchors. Keep labels and equation order aligned across translations. Inline formulas stay unnumbered; use `\notag` for display formulas that do not need a number.
+- Prefer centered three-line tables for mathematical examples and scientific data, using `{: .three-line}`. Keep meaningful column headers and units; do not change unrelated tables globally.
+- Define notation, domains, and assumptions; distinguish intuition, definitions, claims, proofs, and examples. Check endpoint, zero-denominator, and degenerate cases when relevant. Preserve the blog's readable voice rather than imposing a full paper template.
+- Use `h2` for major sections and `h3` for their direct subsections; keep the same hierarchy in paired translations. Do not skip levels just to change visual size.
+- Build and run `python3 scripts/check-math-posts.py`; verify rendered equations, working reference jumps, and desktop/mobile readability in both languages when changing math support.
+
 ### Blog Titles, Subtitles, and Tags
 
 - Read the full post and its translation before judging metadata. Identify the central subject, what the post actually explains, and its scope; do not infer these from the existing title or keyword frequency alone.
