@@ -6,6 +6,7 @@ translation_url: /
 title: "你好，我是叶旭航"
 subtitle: 计算机学生 / 热爱学习 / 开源开发者
 css: "/assets/css/index.css"
+js: "/assets/js/home-pagination.js"
 cover-img:
   - "/assets/img/big-imgs/Chongqing1.jpg" : "洪崖洞，我在重庆求学的城市"
   - "/assets/img/big-imgs/Chongqing2.jpg" : "重庆天际线，我在重庆求学的城市"
@@ -38,7 +39,7 @@ cover-img:
   <a href="/zh/tags/" class="list-filter">{{ t.home.index }}</a>
 </div>
 
-<div class="posts-list">
+<div class="posts-list" id="posts-list">
   {% for post in posts %}
   <article class="post-preview">
 
@@ -119,3 +120,5 @@ cover-img:
    </article>
   {% endfor %}
 </div>
+
+{% include home-pagination.html %}

@@ -5,6 +5,40 @@
   text-align: center;
 }
 
+.home-pagination:not([hidden]) {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  font-family: var(--site-font);
+}
+
+.home-pagination a {
+  border: 1px solid currentColor;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.home-pagination-previous {
+  grid-column: 1;
+}
+
+.home-pagination-status {
+  grid-column: 2;
+  text-align: center;
+}
+
+.home-pagination-next {
+  grid-column: 3;
+  justify-self: end;
+}
+
+#posts-list {
+  scroll-margin-top: 6rem;
+}
+
 @media (min-width: 768px) {
   .list-filters {
     margin-top: 2.5rem;

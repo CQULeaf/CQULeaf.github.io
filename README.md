@@ -11,6 +11,12 @@ This repository contains Xuhang Ye's personal website and blog, built with Jekyl
 - `resume.html`: embedded resume page
 - `assets/`: stylesheets, scripts, images, and project logos
 
+The English and Chinese home feeds show six posts per page, controlled by
+`home_posts_per_page` in `_config.yml`. Pagination uses `?page=2` links and works
+on the static site without extra build plugins. With JavaScript disabled, the
+complete feed remains readable. Run `node scripts/check-home-pagination.cjs`
+after changing pagination behavior.
+
 ## Run locally
 
 Recommended command:

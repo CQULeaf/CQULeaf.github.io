@@ -268,7 +268,7 @@ timezone: "Asia/Shanghai"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
-paginate: 5
+home_posts_per_page: 6
 
 kramdown:
   input: GFM
